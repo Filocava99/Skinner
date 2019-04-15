@@ -1,32 +1,33 @@
 package it.tigierrei.skinner
 
+import com.google.gson.Gson
+import com.google.gson.JsonArray
+import com.google.gson.JsonObject
+import org.bukkit.ChatColor
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
-import java.util.logging.Level.SEVERE
-import java.io.IOException
-import java.net.MalformedURLException
-import com.google.gson.Gson
-import sun.plugin2.util.PojoUtil.toJson
-import java.io.FileWriter
-import java.io.Writer
-import com.google.gson.JsonArray
-import com.google.gson.JsonObject
-import javafx.scene.control.Skin
 import org.mineskin.SkinOptions
 import org.mineskin.data.SkinCallback
 import java.io.File
+import java.io.FileWriter
+import java.io.IOException
+import java.net.MalformedURLException
 import java.net.URL
 import java.util.logging.Level
 
 
 class SkinnerCommand(val pl: Skinner) : CommandExecutor {
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
-
+        //sk upload fileName disguiseName <displayName>
+        if(args.size < 4){
+            sender.sendMessage(ChatColor.RED.toString() + "You must pass more arguments!Type /sk help for the list of commands")
+        }
+        uploadSkin(args[1],args[2],sender,args[3],if(args.size == 3) null else args[3] )
         return true
     }
 
-    private fun uploadSkin(urlString: String, skinName: String, sender: CommandSender){
+    private fun uploadSkin(urlString: String, skinName: String, sender: CommandSender, disguiseName: String, displayName: String?){
         try {
             val url = URL(urlString)
             val skinFile = File(pl.dataFolder.path+"/skins",  skinName)
