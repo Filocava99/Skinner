@@ -27,8 +27,9 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
             sender.sendMessage("${ChatColor.RED}You don't have the permission to use that command!")
             return true
         }
-        if(args[1].equals("test",ignoreCase = true)){
-            DisguiseAPI.disguiseToAll((sender as Player).getNearbyEntities(2.0,2.0,2.0)[0],DisguiseAPI.getCustomDisguise("ogre"))
+        if(args.isNotEmpty() && args[1].equals("help",ignoreCase = true)){
+            sender.sendMessage("${ChatColor.GREEN}/sk upload fileName fileExtensione disguiseName <displayName>")
+            sender.sendMessage("${ChatColor.GREEN}The displayName parameter is optional")
             return true
         }
         //sk upload fileName fileExtensione disguiseName <displayName>
