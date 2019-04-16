@@ -8,6 +8,7 @@ import it.tigierrei.skinner.utils.SkinnerDisguise
 import me.libraryaddict.disguise.DisguiseAPI
 import me.libraryaddict.disguise.disguisetypes.Disguise
 import org.bukkit.entity.Entity
+import java.io.File
 import java.nio.file.Paths
 
 class DataManager(pl: Skinner) {
@@ -23,7 +24,13 @@ class DataManager(pl: Skinner) {
     var holograms: MutableMap<Entity, Hologram> = HashMap()
 
     init {
+        //Loads the config and checks its integrity
         loadConfig()
+        //Creates the skins folder if not exists
+        val skinsFolder = File("${pl.dataFolder.path}/skins/")
+        if(!skinsFolder.exists()){
+            skinsFolder.mkdirs()
+        }
     }
 
     private fun loadConfig() {
@@ -35,11 +42,9 @@ class DataManager(pl: Skinner) {
             for ( x in section.getKeys(false)){
                 val subSection = section.getConfigurationSection(x)
                 if (subSection != null) {
-                    for(y in subSection.getKeys(false)){
-                        val disguise = SkinnerDisguise(DisguiseAPI.getCustomDisguise(subSection.get("disguise") as String?) as Disguise?,subSection.getString("displayName"))
-                        if(disguise.disguise != null && disguise.displayName != null) {
-                            mythicMobsDisguiseMap[x] = disguise
-                        }
+                    val disguise = SkinnerDisguise(DisguiseAPI.getCustomDisguise(subSection.get("disguise") as String?),subSection.getString("displayName"))
+                    if(disguise.disguise != null) {
+                        mythicMobsDisguiseMap[x] = disguise
                     }
                 }
             }
@@ -49,11 +54,9 @@ class DataManager(pl: Skinner) {
             for ( x in section.getKeys(false)){
                 val subSection = section.getConfigurationSection(x)
                 if (subSection != null) {
-                    for(y in subSection.getKeys(false)){
-                        val disguise = SkinnerDisguise(DisguiseAPI.getCustomDisguise(subSection.get("disguise") as String?) as Disguise?,subSection.getString("displayName"))
-                        if(disguise.disguise != null && disguise.displayName != null) {
-                            citizensDisguiseMap[x] = disguise
-                        }
+                    val disguise = SkinnerDisguise(DisguiseAPI.getCustomDisguise(subSection.get("disguise") as String?) as Disguise?,subSection.getString("displayName"))
+                    if(disguise.disguise != null) {
+                        citizensDisguiseMap[x] = disguise
                     }
                 }
             }
@@ -73,13 +76,15 @@ class DataManager(pl: Skinner) {
             val mmExampleSection = mmSection.createSection("MobInternalNameExample")
             mmExampleSection.set("displayName","&5Example display name")
             mmExampleSection.set("disguise","exampleDisguiseName")
+            config.save()
         }
         if(config.getSection("Citizens-Disguises") == null){
             config.createSection("Citizens-Disguises")
-            val citizenSection = config.getSection("Citizens")
+            val citizenSection = config.getSection("Citizens-Disguises")
             val citizenNPCExample = citizenSection.createSection("ExampleNPCName")
             citizenNPCExample.set("displayName","Example NPC display name")
             citizenNPCExample.set("disguise","exampleDisguiseName")
+            config.save()
         }
     }
 }

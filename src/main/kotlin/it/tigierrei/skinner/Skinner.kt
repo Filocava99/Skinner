@@ -6,7 +6,9 @@ import com.comphenix.protocol.ProtocolManager
 import com.comphenix.protocol.events.ListenerPriority
 import com.sainttx.holograms.api.HologramManager
 import com.sainttx.holograms.api.HologramPlugin
+import it.tigierrei.skinner.commands.SkinnerCommand
 import it.tigierrei.skinner.listeners.MythicMobsListener
+import it.tigierrei.skinner.listeners.NPCListener
 import it.tigierrei.skinner.listeners.PacketListener
 import it.tigierrei.skinner.managers.DataManager
 import org.bukkit.plugin.java.JavaPlugin
@@ -32,13 +34,20 @@ class Skinner : JavaPlugin() {
         mineskinClient = MineskinClient()
 
         //Commands executors
-        //this.getCommand().setExecutor()
+        this.getCommand("skinner")?.setExecutor(SkinnerCommand(this))
 
         //Listeners
-        server.pluginManager.registerEvents(MythicMobsListener(this),this)
+        if(dataManager.mythicMobs) {
+            server.pluginManager.registerEvents(MythicMobsListener(this), this)
+        }
+        if(dataManager.citizens){
+            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+            server.pluginManager.registerEvents(NPCListener(this),this)
+        }
 
         //Packets listeners
         protocolManager.addPacketListener(PacketListener(this,ListenerPriority.NORMAL,PacketType.Play.Server.SPAWN_ENTITY))
+        protocolManager.addPacketListener(PacketListener(this,ListenerPriority.NORMAL,PacketType.Play.Server.NAMED_ENTITY_SPAWN))
         protocolManager.addPacketListener(PacketListener(this,ListenerPriority.NORMAL,PacketType.Play.Server.REL_ENTITY_MOVE_LOOK))
     }
 }

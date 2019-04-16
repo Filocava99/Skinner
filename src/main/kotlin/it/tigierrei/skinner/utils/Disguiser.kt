@@ -13,7 +13,8 @@ class Disguiser {
         fun disguise(plugin: Skinner, entity: Entity, disguise: SkinnerDisguise){
             DisguiseAPI.disguiseToAll(entity,disguise.disguise)
             if(!disguise.displayName.isNullOrEmpty()){
-                val hologram = Hologram(disguise.displayName,entity.location)
+                System.out.println("disguised")
+                val hologram = Hologram(disguise.displayName,entity.location.add(0.0,2.4,0.0))
                 val hologramLine: HologramLine = TextLine(hologram,disguise.displayName)
                 hologram.addLine(hologramLine)
                 plugin.hologramManager.addActiveHologram(hologram) // Tells the plugin a new Hologram was added
