@@ -8,9 +8,7 @@ import org.bukkit.entity.EntityType
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 
-class NPCListener(pl: Skinner) : Listener {
-
-    val pl = pl
+class NPCListener(private val pl: Skinner) : Listener {
 
     @EventHandler
     fun onNpcSpawn(event: NPCSpawnEvent){

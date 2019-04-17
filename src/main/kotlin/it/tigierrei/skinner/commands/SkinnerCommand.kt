@@ -5,19 +5,16 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import it.tigierrei.configapi.ConfigFile
 import it.tigierrei.skinner.Skinner
-import me.libraryaddict.disguise.DisguiseAPI
 import org.bukkit.ChatColor
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
-import org.bukkit.entity.Player
 import org.mineskin.SkinOptions
 import org.mineskin.data.SkinCallback
 import java.io.File
 import java.io.FileWriter
 import java.io.IOException
 import java.net.MalformedURLException
-import java.net.URL
 import java.util.logging.Level
 
 
@@ -77,11 +74,11 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
                     jsonObject.add("properties", propertiesArray)
 
                     val disguise = ConfigFile("${pl.dataFolder.parentFile.path}/LibsDisguises/disguises.yml",false)
-                    disguise.getSection("Disguises").set(disguiseName,"player ${if(displayName == null) "." else displayName} setSkin {\"id\":\"a149f81bf7844f8987c554afdd4db533\",\"name\":\"libraryaddict\",\"properties\":[{\"signature\":\"${skin?.data?.texture?.signature}\",\"name\":\"textures\",\"value\":\"${skin?.data?.texture?.value}\"}]}")
+                    disguise.getSection("Disguises").set(disguiseName,"player ${displayName ?: "."} setSkin {\"id\":\"a149f81bf7844f8987c554afdd4db533\",\"name\":\"libraryaddict\",\"properties\":[{\"signature\":\"${skin?.data?.texture?.signature}\",\"name\":\"textures\",\"value\":\"${skin?.data?.texture?.value}\"}]}")
                     disguise.save()
 
                     try {
-                        FileWriter(skinFile).use({ writer -> Gson().toJson(jsonObject, writer) })
+                        FileWriter(skinFile).use { writer -> Gson().toJson(jsonObject, writer) }
                     } catch (e: IOException) {
                         sender.sendMessage("§cFailed to save skin to file: " + e.message)
                         pl.logger.log(Level.SEVERE, "Failed to save skin", e)

@@ -11,7 +11,6 @@ import com.sainttx.holograms.api.Hologram
 import it.tigierrei.skinner.Skinner
 import it.tigierrei.skinner.utils.Disguiser
 import me.libraryaddict.disguise.DisguiseAPI
-import net.citizensnpcs.api.CitizensAPI
 import org.bukkit.Bukkit
 import org.bukkit.entity.Entity
 import org.bukkit.entity.EntityType
@@ -21,16 +20,23 @@ class PacketListener(private val pl: Skinner, listenerPriority: ListenerPriority
 
 
     override fun onPacketSending(event: PacketEvent) {
-        var entity: Entity? = null
-        if (event.packetType == PacketType.Play.Server.REL_ENTITY_MOVE_LOOK) {
-            val wrapper = WrapperPlayServerRelEntityMoveLook(event.packet)
-            entity = wrapper.getEntity(event)
-        } else if (event.packetType == PacketType.Play.Server.SPAWN_ENTITY) {
-            val wrapper = WrapperPlayServerSpawnEntity(event.packet)
-            entity = wrapper.getEntity(event)
-        } else if (event.packetType == PacketType.Play.Server.NAMED_ENTITY_SPAWN) {
-            val wrapper = WrapperPlayServerNamedEntitySpawn(event.packet)
-            entity = wrapper.getEntity(event)
+        var entity: Entity? = null//NPC of player type is bugged
+        //Updates the hologram location
+        //Checks if the entity as a custom name (it so there must be an hologram in the hashmap)
+        //Checks if the entity is already disguised
+        when {
+            event.packetType == PacketType.Play.Server.REL_ENTITY_MOVE_LOOK -> {
+                val wrapper = WrapperPlayServerRelEntityMoveLook(event.packet)
+                entity = wrapper.getEntity(event)
+            }
+            event.packetType == PacketType.Play.Server.SPAWN_ENTITY -> {
+                val wrapper = WrapperPlayServerSpawnEntity(event.packet)
+                entity = wrapper.getEntity(event)
+            }
+            event.packetType == PacketType.Play.Server.NAMED_ENTITY_SPAWN -> {
+                val wrapper = WrapperPlayServerNamedEntitySpawn(event.packet)
+                entity = wrapper.getEntity(event)
+            }
         }
         if (entity != null) {
             //Checks if the entity is already disguised
@@ -69,7 +75,15 @@ class PacketListener(private val pl: Skinner, listenerPriority: ListenerPriority
                         }
 
                     }
-
+                }
+                if(pl.dataManager.vanillaMobs){
+                    if(pl.dataManager.vanillaMobsDisguiseMap.containsKey(entity.type)){
+                        val disguise = pl.dataManager.vanillaMobsDisguiseMap[entity.type]
+                        if(disguise != null){
+                            Disguiser.disguise(pl,entity,disguise)
+                            return
+                        }
+                    }
                 }
             }
         }

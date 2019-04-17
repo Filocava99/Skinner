@@ -7,6 +7,7 @@ import com.comphenix.protocol.events.ListenerPriority
 import com.sainttx.holograms.api.HologramManager
 import com.sainttx.holograms.api.HologramPlugin
 import it.tigierrei.skinner.commands.SkinnerCommand
+import it.tigierrei.skinner.listeners.EntityListener
 import it.tigierrei.skinner.listeners.MythicMobsListener
 import it.tigierrei.skinner.listeners.NPCListener
 import it.tigierrei.skinner.listeners.PacketListener
@@ -41,9 +42,9 @@ class Skinner : JavaPlugin() {
             server.pluginManager.registerEvents(MythicMobsListener(this), this)
         }
         if(dataManager.citizens){
-            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
             server.pluginManager.registerEvents(NPCListener(this),this)
         }
+        server.pluginManager.registerEvents(EntityListener(this),this)
 
         //Packets listeners
         protocolManager.addPacketListener(PacketListener(this,ListenerPriority.NORMAL,PacketType.Play.Server.SPAWN_ENTITY))

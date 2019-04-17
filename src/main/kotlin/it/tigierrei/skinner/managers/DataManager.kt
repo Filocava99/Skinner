@@ -6,8 +6,8 @@ import it.tigierrei.configapi.ConfigFile
 import it.tigierrei.skinner.Skinner
 import it.tigierrei.skinner.utils.SkinnerDisguise
 import me.libraryaddict.disguise.DisguiseAPI
-import me.libraryaddict.disguise.disguisetypes.Disguise
 import org.bukkit.entity.Entity
+import org.bukkit.entity.EntityType
 import java.io.File
 import java.nio.file.Paths
 
@@ -17,8 +17,10 @@ class DataManager(pl: Skinner) {
 
     var mythicMobs: Boolean = false
     var citizens: Boolean = false
+    var vanillaMobs: Boolean = false
     var mythicMobsDisguiseMap : MutableMap<String, SkinnerDisguise> = HashMap()
     var citizensDisguiseMap : MutableMap<String, SkinnerDisguise> = HashMap()
+    var vanillaMobsDisguiseMap : MutableMap<EntityType,SkinnerDisguise> = HashMap()
 
     var mythicMobsAlive: MutableMap<Entity, MythicMob> = HashMap()
     var holograms: MutableMap<Entity, Hologram> = HashMap()
@@ -37,6 +39,7 @@ class DataManager(pl: Skinner) {
         checkIntegrity()
         mythicMobs = config.get("MythicMobs") as Boolean
         citizens = config.get("Citizens") as Boolean
+        vanillaMobs = config.get("VanillaMobs") as Boolean
         if(mythicMobs){
             val section = config.getSection("MM-Disguises")
             for ( x in section.getKeys(false)){
@@ -54,9 +57,22 @@ class DataManager(pl: Skinner) {
             for ( x in section.getKeys(false)){
                 val subSection = section.getConfigurationSection(x)
                 if (subSection != null) {
-                    val disguise = SkinnerDisguise(DisguiseAPI.getCustomDisguise(subSection.get("disguise") as String?) as Disguise?,subSection.getString("displayName"))
+                    val disguise = SkinnerDisguise(DisguiseAPI.getCustomDisguise(subSection.get("disguise") as String?),subSection.getString("displayName"))
                     if(disguise.disguise != null) {
                         citizensDisguiseMap[x] = disguise
+                    }
+                }
+            }
+        }
+        if(vanillaMobs){
+            val section = config.getSection("VanillaMobs-Disguises")
+            for ( x in section.getKeys(false)){
+                val subSection = section.getConfigurationSection(x)
+                if (subSection != null) {
+                    val disguise = SkinnerDisguise(DisguiseAPI.getCustomDisguise(subSection.get("disguise") as String?),subSection.getString("displayName"))
+                    val entityType = EntityType.fromName(x)
+                    if(disguise.disguise != null && entityType != null) {
+                        vanillaMobsDisguiseMap[entityType] = disguise
                     }
                 }
             }
@@ -69,6 +85,9 @@ class DataManager(pl: Skinner) {
         }
         if(config.get("Citizens") == null){
             config.set("Citizens", false)
+        }
+        if(config.get("VanillaMobs") == null){
+            config.set("VanillaMobs", false)
         }
         if(config.getSection("MM-Disguises") == null){
             config.createSection("MM-Disguises")
@@ -83,6 +102,14 @@ class DataManager(pl: Skinner) {
             val citizenSection = config.getSection("Citizens-Disguises")
             val citizenNPCExample = citizenSection.createSection("ExampleNPCName")
             citizenNPCExample.set("displayName","Example NPC display name")
+            citizenNPCExample.set("disguise","exampleDisguiseName")
+            config.save()
+        }
+        if(config.getSection("VanillaMobs-Disguises") == null){
+            config.createSection("VanillaMobs-Disguises")
+            val citizenSection = config.getSection("VanillaMobs-Disguises")
+            val citizenNPCExample = citizenSection.createSection("CREEPER")
+            citizenNPCExample.set("displayName","Example display name")
             citizenNPCExample.set("disguise","exampleDisguiseName")
             config.save()
         }
