@@ -24,7 +24,7 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
             sender.sendMessage("${ChatColor.RED}You don't have the permission to use that command!")
             return true
         }
-        if(args.isNotEmpty() && args[1].equals("help",ignoreCase = true)){
+        if(args.isEmpty() || (args.isNotEmpty() && args[0].equals("help",ignoreCase = true))){
             sender.sendMessage("${ChatColor.GREEN}/sk upload fileName fileExtensione disguiseName <displayName>")
             sender.sendMessage("${ChatColor.GREEN}The displayName parameter is optional")
             return true

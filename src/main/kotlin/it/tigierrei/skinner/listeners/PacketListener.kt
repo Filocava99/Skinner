@@ -54,7 +54,9 @@ class PacketListener(private val pl: Skinner, listenerPriority: ListenerPriority
                             if (pl.dataManager.mythicMobsDisguiseMap.containsKey(mythicMob.internalName)) {
                                 val disguise = pl.dataManager.mythicMobsDisguiseMap[mythicMob.internalName]
                                 if (disguise != null) {
-                                    Disguiser.disguise(pl, entity, disguise)
+                                    Bukkit.getScheduler().runTaskLater(pl, Runnable {
+                                        Disguiser.disguise(pl, entity, disguise)
+                                    }, 1L)
                                     return
                                 }
                             }
@@ -80,7 +82,9 @@ class PacketListener(private val pl: Skinner, listenerPriority: ListenerPriority
                     if(pl.dataManager.vanillaMobsDisguiseMap.containsKey(entity.type)){
                         val disguise = pl.dataManager.vanillaMobsDisguiseMap[entity.type]
                         if(disguise != null){
-                            Disguiser.disguise(pl,entity,disguise)
+                            Bukkit.getScheduler().runTaskLater(pl, Runnable {
+                                Disguiser.disguise(pl, entity, disguise)
+                            }, 1L)
                             return
                         }
                     }

@@ -46,7 +46,7 @@ class DataManager(pl: Skinner) {
             for ( x in section.getKeys(false)){
                 val subSection = section.getConfigurationSection(x)
                 if (subSection != null) {
-                    val disguise = SkinnerDisguise(DisguiseConfig.getParsedCustomDisguise(subSection.get("disguise") as String?).value,subSection.getString("displayName"))
+                    val disguise = SkinnerDisguise(DisguiseAPI.getCustomDisguise(subSection.get("disguise") as String?),subSection.getString("displayName"))
                     if(disguise.disguise != null) {
                         mythicMobsDisguiseMap[x] = disguise
                     }
@@ -58,7 +58,7 @@ class DataManager(pl: Skinner) {
             for ( x in section.getKeys(false)){
                 val subSection = section.getConfigurationSection(x)
                 if (subSection != null) {
-                    val disguise = SkinnerDisguise(DisguiseConfig.getParsedCustomDisguise(subSection.get("disguise") as String?).value,subSection.getString("displayName"))
+                    val disguise = SkinnerDisguise(DisguiseAPI.getCustomDisguise(subSection.get("disguise") as String?),subSection.getString("displayName"))
                     if(disguise.disguise != null) {
                         citizensDisguiseMap[x] = disguise
                     }
@@ -70,7 +70,7 @@ class DataManager(pl: Skinner) {
             for ( x in section.getKeys(false)){
                 val subSection = section.getConfigurationSection(x)
                 if (subSection != null) {
-                    val disguise = SkinnerDisguise(DisguiseConfig.getParsedCustomDisguise(subSection.get("disguise") as String?).value,subSection.getString("displayName"))
+                    val disguise = SkinnerDisguise(DisguiseAPI.getCustomDisguise(subSection.get("disguise") as String?),subSection.getString("displayName"))
                     val entityType = EntityType.fromName(x)
                     if(disguise.disguise != null && entityType != null) {
                         vanillaMobsDisguiseMap[entityType] = disguise
