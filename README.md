@@ -15,5 +15,5 @@ Commands | Description
 /sk reload | Reloads the config.yml
 /sk upload fileName fileExtension disguiseName <disguiseDisplayName> |
   
-###Permissions:
+### Permissions:
     skinner: allows the use of all commands
