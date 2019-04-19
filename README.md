@@ -10,8 +10,11 @@ Skinner allows you to change the skin of Vanilla Mobs, Citizen's NPCs, MythicMob
 ### Current versions tested: *1.13.2*
 
     /skinner, /sk and /sk1 are equivalent​
+    
+#### [Report a bug/Get support](https://sndev.it/c/support)
+### Commands
 
-Commands | Description
+Command | Description
 ---------|------------
 /sk help | Shows the list of commands
 /sk reload | Reloads the config.yml
