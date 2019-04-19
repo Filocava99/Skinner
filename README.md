@@ -2,7 +2,7 @@
 
 ## [Spigot page](https://www.spigotmc.org/resources/skinner.59452/)
 
-#### ProtocolLib,Lib'sDisguises 9.7.X and Holograms required!
+#### [ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/),[Lib'sDisguises 9.7.X](https://www.spigotmc.org/resources/libs-disguises.32453/download?version=252287) and [Holograms](https://www.spigotmc.org/resources/holograms.4924/) required!
 
 ### Why should you use it:
 Skinner allows you to change the skin of Vanilla Mobs, Citizen's NPCs, MythicMobs' mobs, players and even of yourself!
