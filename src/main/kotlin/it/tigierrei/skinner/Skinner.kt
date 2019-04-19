@@ -12,6 +12,7 @@ import it.tigierrei.skinner.listeners.MythicMobsListener
 import it.tigierrei.skinner.listeners.NPCListener
 import it.tigierrei.skinner.listeners.PacketListener
 import it.tigierrei.skinner.managers.DataManager
+import it.tigierrei.skinner.utils.Scheduler
 import org.bukkit.plugin.java.JavaPlugin
 import org.mineskin.MineskinClient
 
@@ -31,6 +32,7 @@ class Skinner : JavaPlugin() {
         super.onEnable()
 
         dataManager = DataManager(this)
+        val scheduler = Scheduler(this)
         hologramManager = getPlugin(HologramPlugin::class.java).hologramManager
         mineskinClient = MineskinClient()
 

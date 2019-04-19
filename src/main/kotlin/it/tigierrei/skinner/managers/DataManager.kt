@@ -19,9 +19,9 @@ class DataManager(pl: Skinner) {
     var mythicMobs: Boolean = false
     var citizens: Boolean = false
     var vanillaMobs: Boolean = false
-    var mythicMobsDisguiseMap : MutableMap<String, SkinnerDisguise> = HashMap()
-    var citizensDisguiseMap : MutableMap<String, SkinnerDisguise> = HashMap()
-    var vanillaMobsDisguiseMap : MutableMap<EntityType,SkinnerDisguise> = HashMap()
+    lateinit var mythicMobsDisguiseMap : MutableMap<String, SkinnerDisguise>
+    lateinit var citizensDisguiseMap : MutableMap<String, SkinnerDisguise>
+    lateinit var vanillaMobsDisguiseMap : MutableMap<EntityType,SkinnerDisguise>
 
     var mythicMobsAlive: MutableMap<Entity, MythicMob> = HashMap()
     var holograms: MutableMap<Entity, Hologram> = HashMap()
@@ -36,8 +36,12 @@ class DataManager(pl: Skinner) {
         }
     }
 
-    private fun loadConfig() {
+    fun loadConfig() {
         checkIntegrity()
+        mythicMobsDisguiseMap = HashMap()
+        citizensDisguiseMap = HashMap()
+        vanillaMobsDisguiseMap = HashMap()
+
         mythicMobs = config.get("MythicMobs") as Boolean
         citizens = config.get("Citizens") as Boolean
         vanillaMobs = config.get("VanillaMobs") as Boolean

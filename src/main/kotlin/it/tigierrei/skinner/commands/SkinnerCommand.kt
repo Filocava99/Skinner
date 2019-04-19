@@ -5,6 +5,7 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import it.tigierrei.configapi.ConfigFile
 import it.tigierrei.skinner.Skinner
+import it.tigierrei.skinner.managers.DataManager
 import org.bukkit.ChatColor
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -28,6 +29,11 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
             sender.sendMessage("${ChatColor.GREEN}/sk upload fileName fileExtensione disguiseName <displayName>")
             sender.sendMessage("${ChatColor.GREEN}The displayName parameter is optional")
             return true
+        }
+        if(args[0].equals("reload",ignoreCase = true)){
+            pl.dataManager.loadConfig()
+            sender.sendMessage("${ChatColor.GOLD}[${ChatColor.YELLOW}Skinner${ChatColor.GOLD}] ${ChatColor.GREEN}Config reloaded!")
+            return true;
         }
         //sk upload fileName fileExtensione disguiseName <displayName>
         if (args.size < 4) {
