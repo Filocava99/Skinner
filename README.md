@@ -24,4 +24,4 @@ Command | Description
 ### Permissions:
     skinner: allows the use of all commands
 
-![Donate!](https://proxy.spigotmc.org/c3159ca56058cc7d0de785cb0d2ba3473ac6a50d?url=https%3A%2F%2Fwww.umassmed.edu%2Fglobalassets%2Fmueller-lab-for-gene-therapy%2Fsupport-us-button.png)
+[![Donate!](https://proxy.spigotmc.org/c3159ca56058cc7d0de785cb0d2ba3473ac6a50d?url=https%3A%2F%2Fwww.umassmed.edu%2Fglobalassets%2Fmueller-lab-for-gene-therapy%2Fsupport-us-button.png)](https://www.paypal.me/tigierrei)
