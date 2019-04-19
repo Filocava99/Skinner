@@ -1,5 +1,7 @@
 # Skinner
 
+## [Spigot page](https://www.spigotmc.org/resources/skinner.59452/)
+
 #### ProtocolLib,Lib'sDisguises 9.7.X and Holograms required!
 
 ### Why should you use it:
@@ -13,7 +15,7 @@ Commands | Description
 ---------|------------
 /sk help | Shows the list of commands
 /sk reload | Reloads the config.yml
-/sk upload fileName fileExtension disguiseName <disguiseDisplayName> |
+/sk upload fileName fileExtension disguiseName <disguiseDisplayName> | Uploads a skin
   
 ### Permissions:
     skinner: allows the use of all commands
