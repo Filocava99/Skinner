@@ -20,6 +20,7 @@ Command | Description
 /sk help | Shows the list of commands
 /sk reload | Reloads the config.yml
 /sk upload fileName fileExtension disguiseName <disguiseDisplayName> | Uploads a skin
+/sk skin disguiseName | Changes your skin for other palyers
   
 ### Permissions:
     skinner.* : allows the use of all commands
