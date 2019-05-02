@@ -5,11 +5,13 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import it.tigierrei.configapi.ConfigFile
 import it.tigierrei.skinner.Skinner
-import it.tigierrei.skinner.managers.DataManager
+import me.libraryaddict.disguise.DisguiseAPI
+import me.libraryaddict.disguise.disguisetypes.Disguise
 import org.bukkit.ChatColor
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
+import org.bukkit.entity.Player
 import org.mineskin.SkinOptions
 import org.mineskin.data.SkinCallback
 import java.io.File
@@ -21,26 +23,55 @@ import java.util.logging.Level
 
 class SkinnerCommand(val pl: Skinner) : CommandExecutor {
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
-        if(!sender.hasPermission("skinner")){
-            sender.sendMessage("${ChatColor.RED}You don't have the permission to use that command!")
-            return true
-        }
         if(args.isEmpty() || (args.isNotEmpty() && args[0].equals("help",ignoreCase = true))){
+            if(!sender.hasPermission("skinner.help")){
+                sender.sendMessage("${ChatColor.RED}You don't have the permission to use that command!")
+                return true
+            }
             sender.sendMessage("${ChatColor.GREEN}/sk upload fileName fileExtensione disguiseName <displayName>")
             sender.sendMessage("${ChatColor.GREEN}The displayName parameter is optional")
             return true
         }
         if(args[0].equals("reload",ignoreCase = true)){
+            if(!sender.hasPermission("skinner.reload")){
+                sender.sendMessage("${ChatColor.RED}You don't have the permission to use that command!")
+                return true
+            }
             pl.dataManager.loadConfig()
             sender.sendMessage("${ChatColor.GOLD}[${ChatColor.YELLOW}Skinner${ChatColor.GOLD}] ${ChatColor.GREEN}Config reloaded!")
-            return true;
-        }
-        //sk upload fileName fileExtensione disguiseName <displayName>
-        if (args.size < 4) {
-            sender.sendMessage("${ChatColor.RED}You must pass more arguments!Type /sk help for the list of commands")
             return true
         }
-        uploadSkin(args[1], args[2], sender, args[3], if (args.size == 4) null else args[4])
+        if(args[0].equals("skin",ignoreCase = true)){
+            if(!sender.hasPermission("skin")){
+                sender.sendMessage("${ChatColor.RED}You don't have the permission to use that command!")
+                return true
+            }
+            if(args.size < 2){
+                sender.sendMessage("${ChatColor.RED}You must pass more arguments!Type /sk help for the list of commands")
+                return true
+            }
+            val disguise = DisguiseAPI.getCustomDisguise(args[1])
+            if(disguise != null){
+                DisguiseAPI.disguiseToAll((sender as Player),disguise)
+                sender.sendMessage("${ChatColor.GREEN}Your skin has been changed!")
+            }else{
+                sender.sendMessage("${ChatColor.RED}That skin does not exist!")
+            }
+            return true
+        }
+        //sk upload fileName fileExtensione disguiseName <displayName>
+        if(args[0].equals("upload",ignoreCase = true)){
+            if(!sender.hasPermission("upload")){
+                sender.sendMessage("${ChatColor.RED}You don't have the permission to use that command!")
+                return true
+            }
+            if (args.size < 4) {
+                sender.sendMessage("${ChatColor.RED}You must pass more arguments!Type /sk help for the list of commands")
+                return true
+            }
+            uploadSkin(args[1], args[2], sender, args[3], if (args.size == 4) null else args[4])
+            return true
+        }
         return true
     }
 

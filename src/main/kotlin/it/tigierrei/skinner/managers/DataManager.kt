@@ -6,7 +6,6 @@ import it.tigierrei.configapi.ConfigFile
 import it.tigierrei.skinner.Skinner
 import it.tigierrei.skinner.utils.SkinnerDisguise
 import me.libraryaddict.disguise.DisguiseAPI
-import me.libraryaddict.disguise.DisguiseConfig
 import org.bukkit.entity.Entity
 import org.bukkit.entity.EntityType
 import java.io.File

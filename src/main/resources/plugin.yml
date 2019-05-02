@@ -1,6 +1,6 @@
 name: Skinner
 main: it.tigierrei.skinner.Skinner
-version: 3.1.1
+version: 3.2.0
 softdepend: [MythicMobs,Citizens]
 depend: [LibsDisguises,Holograms]
 commands:
@@ -10,5 +10,18 @@ commands:
       - sk
       - sk1
 permissions:
-  skinner:
+  skinner.*:
+    children:
+      - skinner.upload
+      - skinner.help
+      - skinner.skin
+      - skinner.reload
+    default: op
+  skinner.help:
+    default: true
+  skinner.upload:
+    default: op
+  skinner.reload:
+    default: op
+  skinner.skin:
     default: op
