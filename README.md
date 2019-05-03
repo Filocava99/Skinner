@@ -9,7 +9,7 @@
 ### Why should you use it:
 Skinner allows you to change the skin of Vanilla Mobs, Citizen's NPCs, MythicMobs' mobs, players and even of yourself!
 
-### Current versions tested: *1.13.2*
+### Current versions tested: 1.13.2
 
     /skinner, /sk and /sk1 are equivalent​
     
