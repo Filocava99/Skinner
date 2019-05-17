@@ -5,7 +5,7 @@ import io.lumine.xikage.mythicmobs.mobs.MythicMob
 import it.tigierrei.configapi.ConfigFile
 import it.tigierrei.skinner.Skinner
 import it.tigierrei.skinner.utils.SkinnerDisguise
-import me.libraryaddict.disguise.DisguiseAPI
+import me.libraryaddict.disguise.DisguiseConfig
 import org.bukkit.entity.Entity
 import org.bukkit.entity.EntityType
 import java.io.File
@@ -49,7 +49,7 @@ class DataManager(pl: Skinner) {
             for ( x in section.getKeys(false)){
                 val subSection = section.getConfigurationSection(x)
                 if (subSection != null) {
-                    val disguise = SkinnerDisguise(DisguiseAPI.getCustomDisguise(subSection.get("disguise") as String?),subSection.getString("displayName"))
+                    val disguise = SkinnerDisguise(DisguiseConfig.getParsedCustomDisguise(subSection.get("disguise") as String?).value,subSection.getString("displayName"))
                     if(disguise.disguise != null) {
                         mythicMobsDisguiseMap[x] = disguise
                     }
@@ -61,7 +61,7 @@ class DataManager(pl: Skinner) {
             for ( x in section.getKeys(false)){
                 val subSection = section.getConfigurationSection(x)
                 if (subSection != null) {
-                    val disguise = SkinnerDisguise(DisguiseAPI.getCustomDisguise(subSection.get("disguise") as String?),subSection.getString("displayName"))
+                    val disguise = SkinnerDisguise(DisguiseConfig.getParsedCustomDisguise(subSection.get("disguise") as String?).value,subSection.getString("displayName"))
                     if(disguise.disguise != null) {
                         citizensDisguiseMap[x] = disguise
                     }
@@ -73,7 +73,8 @@ class DataManager(pl: Skinner) {
             for ( x in section.getKeys(false)){
                 val subSection = section.getConfigurationSection(x)
                 if (subSection != null) {
-                    val disguise = SkinnerDisguise(DisguiseAPI.getCustomDisguise(subSection.get("disguise") as String?),subSection.getString("displayName"))
+
+                    val disguise = SkinnerDisguise(DisguiseConfig.getParsedCustomDisguise(subSection.get("disguise") as String?).value,subSection.getString("displayName"))
                     val entityType = EntityType.fromName(x)
                     if(disguise.disguise != null && entityType != null) {
                         vanillaMobsDisguiseMap[entityType] = disguise

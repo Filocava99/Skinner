@@ -6,7 +6,7 @@ import com.google.gson.JsonObject
 import it.tigierrei.configapi.ConfigFile
 import it.tigierrei.skinner.Skinner
 import me.libraryaddict.disguise.DisguiseAPI
-import me.libraryaddict.disguise.disguisetypes.Disguise
+import me.libraryaddict.disguise.DisguiseConfig
 import org.bukkit.ChatColor
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -50,7 +50,7 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
                 sender.sendMessage("${ChatColor.RED}You must pass more arguments!Type /sk help for the list of commands")
                 return true
             }
-            val disguise = DisguiseAPI.getCustomDisguise(args[1])
+            val disguise = DisguiseConfig.getParsedCustomDisguise(args[1]).value
             if(disguise != null){
                 DisguiseAPI.disguiseToAll((sender as Player),disguise)
                 sender.sendMessage("${ChatColor.GREEN}Your skin has been changed!")
