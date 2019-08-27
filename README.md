@@ -30,3 +30,9 @@ Command | Description
     skinner.upload : allows the use of the upload command
 
 [![Donate!](https://proxy.spigotmc.org/c3159ca56058cc7d0de785cb0d2ba3473ac6a50d?url=https%3A%2F%2Fwww.umassmed.edu%2Fglobalassets%2Fmueller-lab-for-gene-therapy%2Fsupport-us-button.png)](https://www.paypal.me/tigierrei)
+
+### Third party licenses
+Code | License
+--------|--------
+MineSkin Java Client | [Click here](https://github.com/InventivetalentDev/MineskinClient/blob/master/LICENSE)
+ProtocolLib PacketWrapper | [Click here](https://github.com/dmulloy2/PacketWrapper/blob/master/License.txt)
