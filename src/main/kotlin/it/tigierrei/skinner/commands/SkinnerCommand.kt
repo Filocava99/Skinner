@@ -50,7 +50,7 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
                 sender.sendMessage("${ChatColor.RED}You must pass more arguments!Type /sk help for the list of commands")
                 return true
             }
-            val disguise = DisguiseConfig.getParsedCustomDisguise(args[1]).value
+            val disguise = DisguiseAPI.getCustomDisguise(args[1])
             if(disguise != null){
                 DisguiseAPI.disguiseToAll((sender as Player),disguise)
                 sender.sendMessage("${ChatColor.GREEN}Your skin has been changed!")
