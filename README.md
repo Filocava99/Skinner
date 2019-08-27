@@ -2,7 +2,7 @@
 
 ## [Spigot page](https://www.spigotmc.org/resources/skinner.59452/)
 
-#### [Report a bug/Get support](https://sndev.it/c/support)
+#### [Report a bug/Get support](https://github.com/tigierrei/Skinner/issues)
 
 #### [ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/),[Lib'sDisguises 9.7.X](https://www.spigotmc.org/resources/libs-disguises.32453/download?version=252287) and [Holograms](https://www.spigotmc.org/resources/holograms.4924/) required!
 
