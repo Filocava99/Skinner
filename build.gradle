@@ -9,7 +9,7 @@ plugins {
 apply plugin: 'maven-publish'
 
 group 'it.tigierrei'
-version '4.0.0-SNAPSHOT'
+version '4.2.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
@@ -21,7 +21,7 @@ sourceCompatibility = 1.8
 }*/
 
 repositories {
-
+/*
     maven {
         url myMavenRepoReadUrl
 
@@ -30,13 +30,14 @@ repositories {
             password myMavenRepoReadPassword
         }
     }
-    
+    */
     mavenCentral()
     maven { url "http://repo.dmulloy2.net/nexus/repository/public/" }
     maven { url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/" }
     maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
     maven { url = 'http://repo.citizensnpcs.co/' }
     maven { url = 'http://repo.md-5.net/content/groups/public/' }
+    maven { url = 'https://repo.inventivetalent.org/content/groups/public/' }
 }
 
 dependencies {
@@ -53,8 +54,7 @@ dependencies {
     compileOnly "org.bukkit:bukkit:1.14.2-R0.1-SNAPSHOT"
     compileOnly "net.citizensnpcs:citizensapi:2.0.19-SNAPSHOT"
     compileOnly fileTree(include: ['*.jar'], dir: 'libs')
-    // Your might already have other librarires/dependencies here you should leave them
-    // as they are and just add your on new line
+    compile "org.inventivetalent.packetlistener:api:3.7.3-SNAPSHOT"
 }
 
 compileKotlin {

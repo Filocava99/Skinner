@@ -12,9 +12,11 @@ class MythicMobsListener(private val pl: Skinner) : Listener{
 
     @EventHandler
     fun onMythicMobSpawn(event: MythicMobSpawnEvent){
+        System.out.println("mm spawned")
         pl.dataManager.mythicMobsAlive[event.entity] = event.mobType
         if(pl.dataManager.mythicMobsDisguiseMap.containsKey(event.mobType.internalName) && !DisguiseAPI.isDisguised(event.entity)){
             val disguise = pl.dataManager.mythicMobsDisguiseMap[event.mobType.internalName]
+            System.out.println(disguise?.displayName)
             if(disguise != null){
                 Disguiser.disguise(pl,event.entity,disguise)
             }
@@ -27,7 +29,7 @@ class MythicMobsListener(private val pl: Skinner) : Listener{
             pl.dataManager.mythicMobsAlive.remove(event.entity)
             //Removes hologram related to the entity if it exists
             if(pl.dataManager.holograms.containsKey(event.entity)){
-                pl.hologramManager.deleteHologram(pl.dataManager.holograms[event.entity])
+                pl.dataManager.holograms[event.entity]?.entity?.remove()
                 pl.dataManager.holograms.remove(event.entity)
             }
         }

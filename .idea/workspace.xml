@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a1e37cd5-568c-47da-a88f-4914bc7a9c30" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gradle/4.10/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.10/fileContent/annotation-processors.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.10/fileContent/fileContent.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.10/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/taskHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Skinner.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/it/tigierrei/configapi/ConfigFile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/org/mineskin/MineskinClient.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/org/mineskin/Model.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/org/mineskin/SkinOptions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/org/mineskin/Visibility.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/org/mineskin/data/Skin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/org/mineskin/data/SkinCallback.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/org/mineskin/data/SkinData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/org/mineskin/data/Texture.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/META-INF/Skinner.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/Skinner.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/commands/SkinnerCommand$uploadFromFile$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/commands/SkinnerCommand$uploadFromUUID$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/commands/SkinnerCommand$uploadFromUrl$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/commands/SkinnerCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/listeners/EntityListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/listeners/MythicMobsListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/listeners/NPCListener$onNpcSpawn$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/listeners/NPCListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/managers/DataManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/utils/Disguiser$Companion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/utils/Disguiser.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/utils/Scheduler$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/utils/Scheduler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/utils/SkinnerDisguise.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/java-sources-proto-map.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/java-sources-proto-map.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/java-sources-proto-map.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/java-sources-proto-map.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/java-sources-proto-map.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/java-sources-proto-map.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/java-sources-proto-map.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/data-container-format-version.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/format-version.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/gradle-format-version.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/Skinner-3.0.0-SNAPSHOT-all.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/Skinner-3.0.1-SNAPSHOT-all.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/Skinner-4.1.0-SNAPSHOT-all.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/shadowJar/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/tigierrei/configapi/ConfigFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/holograms/Hologram.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/holograms/HologramUpdater.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/Holograms-2.9.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/AbstractPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/ChunkPacketProcessor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/PacketWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperHandshakingClientSetProtocol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperLoginClientCustomPayload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperLoginClientEncryptionBegin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperLoginClientStart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperLoginServerCustomPayload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperLoginServerDisconnect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperLoginServerEncryptionBegin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperLoginServerSetCompression.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperLoginServerSuccess.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientAbilities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientAdvancements.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientArmAnimation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientAutoRecipe.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientBeacon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientBlockDig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientBlockPlace.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientBoatMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientBookEdit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientChat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientClientCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientCloseWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientCustomPayload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientEnchantItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientEntityAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientEntityNbtQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientFlying.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientHeldItemSlot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientItemName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientKeepAlive.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientLook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientPickItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientPosition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientPositionLook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientRecipeDisplayed.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientResourcePackStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientSetCommandBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientSetCommandMinecart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientSetCreativeSlot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientSettings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientSpectate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientSteerVehicle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientStructureBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientTeleportAccept.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientTileNbtQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientTradeSelect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientTransaction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientUpdateSign.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientUseEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientUseItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientVehicleMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayClientWindowClick.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerAbilities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerAdvancements.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerAnimation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerAttachEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerAutoRecipe.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerBed.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerBlockAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerBlockBreakAnimation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerBlockChange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerBoss.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerCamera.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerChat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerCloseWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerCollect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerCombatEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerCustomPayload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerCustomSoundEffect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerEntityDestroy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerEntityEffect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerEntityEquipment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerEntityHeadRotation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerEntityLook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerEntityMetadata.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerEntityStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerEntityTeleport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerEntityVelocity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerExperience.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerExplosion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerGameStateChange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerHeldItemSlot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerKeepAlive.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerKickDisconnect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerLogin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerLookAt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerMapChunk.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerMount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerMultiBlockChange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerNamedEntitySpawn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerNamedSoundEffect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerNbtQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerOpenSignEditor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerOpenWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerPlayerInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerPlayerListHeaderFooter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerPosition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerRecipeUpdate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerRecipes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerRelEntityMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerRelEntityMoveLook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerRemoveEntityEffect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerResourcePackSend.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerRespawn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerScoreboardDisplayObjective.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerScoreboardObjective.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerScoreboardScore.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerScoreboardTeam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerSelectAdvancementTab.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerServerDifficulty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerSetCooldown.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerSetSlot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerSpawnEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerSpawnEntityExperienceOrb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerSpawnEntityLiving.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerSpawnEntityPainting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerSpawnEntityWeather.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerSpawnPosition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerStatistic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerStopSound.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerTags.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerTileEntityData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerTitle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerTransaction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerUnloadChunk.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerUpdateAttributes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerUpdateHealth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerUpdateTime.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerVehicleMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerWindowData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerWindowItems.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerWorldBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerWorldEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperPlayServerWorldParticles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperStatusClientPing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperStatusClientStart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperStatusServerPong.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/comphenix/packetwrapper/WrapperStatusServerServerInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/Skinner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/Skinner.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/commands/SkinnerCommand.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/commands/SkinnerCommand.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/listeners/EntityListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/listeners/EntityListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/listeners/MythicMobsListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/listeners/MythicMobsListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/listeners/PacketListener.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/managers/DataManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/managers/DataManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/utils/Disguiser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/utils/Disguiser.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/utils/Scheduler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/utils/Scheduler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Invalid</find>
+      <find>already</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1Q9hEkX6hxXcqQxUVehlwBeaLw7" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/it/tigierrei/configapi" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="it.tigierrei.skinner.commands" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Filippo\Desktop\Workspaces\IntelliJ\Skinner\src\main\java\it\tigierrei\configapi" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.Skinner [shadowJar]">
+    <configuration name="Skinner [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Skinner [knows]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="knows" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Skinner [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Skinner [sourcesJar javadocJar]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="sourcesJar" />
+            <option value="javadocJar" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Skinner [shadowJar]" />
+        <item itemvalue="Gradle.Skinner [knows]" />
+        <item itemvalue="Gradle.Skinner [build]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a1e37cd5-568c-47da-a88f-4914bc7a9c30" name="Default Changelist" comment="" />
+      <created>1555419170449</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1555419170449</updated>
+      <workItem from="1555419171731" duration="1844000" />
+      <workItem from="1555422493664" duration="453000" />
+      <workItem from="1555422975849" duration="20238000" />
+      <workItem from="1555516635626" duration="1970000" />
+      <workItem from="1555520861799" duration="2155000" />
+      <workItem from="1555528191672" duration="806000" />
+      <workItem from="1555529226303" duration="909000" />
+      <workItem from="1566983896858" duration="110000" />
+      <workItem from="1566984053598" duration="6885000" />
+      <workItem from="1567078052557" duration="9805000" />
+      <workItem from="1567188626428" duration="57000" />
+    </task>
+    <task id="LOCAL-00001" summary="Almost ready to be released&#10;Added:&#10;* packets listeners&#10;* upload command&#10;* npc listeners&#10;* mythicmobs listeners&#10;* fixed npc skin bug&#10;&#10;TODO:&#10;* holograms management&#10;* vanilla mobs skin">
+      <created>1555447106646</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1555447106646</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added help command">
+      <created>1555448067445</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1555448067445</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Finished&#10;Added support for latest LibsDisguises build">
+      <created>1555517760430</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1555517760430</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Hotfix">
+      <created>1555532165281</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1555532165281</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Almost ready to be released&#10;Added:&#10;* packets listeners&#10;* upload command&#10;* npc listeners&#10;* mythicmobs listeners&#10;* fixed npc skin bug&#10;&#10;TODO:&#10;* holograms management&#10;* vanilla mobs skin" />
+    <MESSAGE value="Added help command" />
+    <MESSAGE value="Finished&#10;Addes support for latest LibsDisguises build" />
+    <MESSAGE value="Finished&#10;Added support for latest LibsDisguises build" />
+    <MESSAGE value="Hotfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hotfix" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>mm</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

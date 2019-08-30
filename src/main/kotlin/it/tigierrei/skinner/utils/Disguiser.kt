@@ -1,9 +1,7 @@
 package it.tigierrei.skinner.utils
 
-import com.sainttx.holograms.api.Hologram
-import com.sainttx.holograms.api.line.HologramLine
-import com.sainttx.holograms.api.line.TextLine
 import it.tigierrei.skinner.Skinner
+import it.tigierrei.skinner.holograms.Hologram
 import me.libraryaddict.disguise.DisguiseAPI
 import org.bukkit.entity.Entity
 
@@ -12,12 +10,10 @@ class Disguiser {
     companion object{
         fun disguise(plugin: Skinner, entity: Entity, disguise: SkinnerDisguise){
             DisguiseAPI.disguiseToAll(entity,disguise.disguise)
+            System.out.println("disguised1")
             if(!disguise.displayName.isNullOrEmpty()){
-                System.out.println("disguised")
+                System.out.println("disguised2")
                 val hologram = Hologram(disguise.displayName,entity.location.add(0.0,2.4,0.0))
-                val hologramLine: HologramLine = TextLine(hologram,disguise.displayName)
-                hologram.addLine(hologramLine)
-                plugin.hologramManager.addActiveHologram(hologram) // Tells the plugin a new Hologram was added
                 plugin.dataManager.holograms[entity] = hologram
             }
         }

@@ -1,9 +1,9 @@
 package it.tigierrei.skinner.managers
 
-import com.sainttx.holograms.api.Hologram
 import io.lumine.xikage.mythicmobs.mobs.MythicMob
 import it.tigierrei.configapi.ConfigFile
 import it.tigierrei.skinner.Skinner
+import it.tigierrei.skinner.holograms.Hologram
 import it.tigierrei.skinner.utils.SkinnerDisguise
 import me.libraryaddict.disguise.DisguiseAPI
 import org.bukkit.entity.Entity
