@@ -10,6 +10,8 @@ class Hologram(val name: String, val location: Location){
 
     init {
         entity.isVisible = false
+        entity.isInvulnerable = true
+        entity.isCollidable = false
         entity.setGravity(false)
         entity.setBasePlate(false)
         entity.isCustomNameVisible = true

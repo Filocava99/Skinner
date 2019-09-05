@@ -10,10 +10,8 @@ class Disguiser {
     companion object{
         fun disguise(plugin: Skinner, entity: Entity, disguise: SkinnerDisguise){
             DisguiseAPI.disguiseToAll(entity,disguise.disguise)
-            System.out.println("disguised1")
             if(!disguise.displayName.isNullOrEmpty()){
-                System.out.println("disguised2")
-                val hologram = Hologram(disguise.displayName,entity.location.add(0.0,2.4,0.0))
+                val hologram = Hologram(disguise.displayName,entity.location.add(0.0,-0.2,0.0))
                 plugin.dataManager.holograms[entity] = hologram
             }
         }

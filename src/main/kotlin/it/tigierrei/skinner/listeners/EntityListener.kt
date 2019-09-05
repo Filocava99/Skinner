@@ -1,6 +1,5 @@
 package it.tigierrei.skinner.listeners
 
-import io.lumine.xikage.mythicmobs.MythicMobs
 import it.tigierrei.skinner.Skinner
 import it.tigierrei.skinner.utils.Disguiser
 import me.libraryaddict.disguise.DisguiseAPI
@@ -34,7 +33,6 @@ class EntityListener(private val pl: Skinner) : Listener {
             }
             if(pl.dataManager.vanillaMobs){
                 val disguise = pl.dataManager.vanillaMobsDisguiseMap[event.entityType]
-                System.out.println(disguise?.displayName)
                 if(disguise != null){
                     Disguiser.disguise(pl,event.entity,disguise)
                 }
