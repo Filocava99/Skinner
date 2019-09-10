@@ -2,6 +2,7 @@ package it.tigierrei.skinner.listeners
 
 import com.comphenix.protocol.PacketType
 import com.comphenix.protocol.ProtocolLibrary
+import com.comphenix.protocol.ProtocolManager
 import com.comphenix.protocol.events.ListenerPriority
 import com.comphenix.protocol.events.PacketAdapter
 import com.comphenix.protocol.events.PacketEvent
@@ -11,73 +12,80 @@ import it.tigierrei.skinner.managers.DataManager
 import me.libraryaddict.disguise.DisguiseAPI
 import net.citizensnpcs.api.CitizensAPI
 
-class PacketsListener(val plugin: Skinner, val dataManager: DataManager) {
-
-    val protocolManager = ProtocolLibrary.getProtocolManager()
+class PacketsListener(val plugin: Skinner, val dataManager: DataManager, val protocolManager: ProtocolManager) {
 
     init {
         protocolManager.addPacketListener(object :
             PacketAdapter(plugin, ListenerPriority.NORMAL, PacketType.Play.Server.REL_ENTITY_MOVE_LOOK) {
             override fun onPacketSending(event: PacketEvent) {
-                //System.out.println("check1")
                 try {
                     if (event.packetType == PacketType.Play.Server.REL_ENTITY_MOVE_LOOK) {
-                        //System.out.println("check2")
+                        //println("check2")
+                        if(event.packet.integers == null || event.packet.integers.size() == 0){
+                            return
+                        }
+
                         val entityID = event.packet.integers.read(0)
-                        //System.out.println("check3")
+                        event.isCancelled = false
+                        //println("check3")
                         if(event.player != null && entityID != null){
-                            //System.out.println("check4")
-                            event.player.getNearbyEntities(512.0, 512.0, 512.0).forEach {
+                            //println("check4")
+                            val iterator = event.player.world.entities.iterator()
+
+                            while(iterator.hasNext()){
+                                val entity = iterator.next()
                                 //System.out.println("check5")
-                                if (it != null) {
+                                if (entity != null && !entity.isDead) {
                                     //System.out.println(it.entityId.toString() + " == " + entityID)
-                                    if (it.entityId == entityID) {
-                                        if (DisguiseAPI.isDisguised(it)) {
-                                            dataManager.holograms[it]?.entity?.teleport(it.location.add(0.0, -0.2, 0.0))
+                                    if (entity.entityId == entityID) {
+                                        if (DisguiseAPI.isDisguised(entity)) {
+                                            if(dataManager.holograms.containsKey(entity)){
+                                                dataManager.holograms[entity]?.entity?.teleport(entity.location.add(0.0, -0.2, 0.0))
+                                            }
                                         }
-                                        if (!DisguiseAPI.isDisguised(event.player, it)) {
+                                        if (!DisguiseAPI.isDisguised(event.player, entity)) {
                                             if (dataManager.mythicMobs) {
-                                                if (dataManager.mythicMobsAlive.containsKey(it)) {
-                                                    val mythicMob = dataManager.mythicMobsAlive[it]
+                                                if (dataManager.mythicMobsAlive.containsKey(entity)) {
+                                                    val mythicMob = dataManager.mythicMobsAlive[entity]
                                                     val disguise = dataManager.mythicMobsDisguiseMap[mythicMob?.internalName]
-                                                    DisguiseAPI.disguiseEntity(it, disguise?.disguise)
-                                                    if (!dataManager.holograms.containsKey(it)) {
+                                                    DisguiseAPI.disguiseEntity(entity, disguise?.disguise)
+                                                    if (!dataManager.holograms.containsKey(entity)) {
                                                         val hologram = Hologram(
                                                             if (disguise?.displayName == null) "" else disguise.displayName,
-                                                            it.location
+                                                            entity.location
                                                         )
-                                                        dataManager.holograms[it] = hologram
+                                                        dataManager.holograms[entity] = hologram
                                                     }
                                                     return
                                                 }
                                             }
                                             if (dataManager.citizens) {
-                                                if (CitizensAPI.getNPCRegistry().isNPC(it)) {
-                                                    if (dataManager.citizensDisguiseMap.containsKey(it.customName)) {
-                                                        val disguise = dataManager.citizensDisguiseMap[it.customName]
-                                                        DisguiseAPI.disguiseEntity(it, disguise?.disguise)
-                                                        if (!dataManager.holograms.containsKey(it)) {
+                                                if (CitizensAPI.getNPCRegistry().isNPC(entity)) {
+                                                    if (dataManager.citizensDisguiseMap.containsKey(entity.customName)) {
+                                                        val disguise = dataManager.citizensDisguiseMap[entity.customName]
+                                                        DisguiseAPI.disguiseEntity(entity, disguise?.disguise)
+                                                        if (!dataManager.holograms.containsKey(entity)) {
                                                             val hologram = Hologram(
                                                                 if (disguise?.displayName == null) "" else disguise.displayName,
-                                                                it.location
+                                                                entity.location
                                                             )
-                                                            dataManager.holograms[it] = hologram
+                                                            dataManager.holograms[entity] = hologram
                                                         }
                                                         return
                                                     }
                                                 }
                                             }
                                             if (dataManager.vanillaMobs) {
-                                                if (dataManager.vanillaMobsDisguiseMap.containsKey(it.type)) {
-                                                    val disguise = dataManager.vanillaMobsDisguiseMap[it.type]
-                                                    DisguiseAPI.disguiseEntity(it, disguise?.disguise)
-                                                    System.out.println("disguising " + it.type.toString())
-                                                    if (!dataManager.holograms.containsKey(it)) {
+                                                if (dataManager.vanillaMobsDisguiseMap.containsKey(entity.type)) {
+                                                    val disguise = dataManager.vanillaMobsDisguiseMap[entity.type]
+                                                    DisguiseAPI.disguiseEntity(entity, disguise?.disguise)
+                                                    System.out.println("disguising " + entity.type.toString())
+                                                    if (!dataManager.holograms.containsKey(entity)) {
                                                         val hologram = Hologram(
                                                             if (disguise?.displayName == null) "" else disguise.displayName,
-                                                            it.location
+                                                            entity.location
                                                         )
-                                                        dataManager.holograms[it] = hologram
+                                                        dataManager.holograms[entity] = hologram
                                                     }
                                                     return
                                                 }
@@ -87,6 +95,8 @@ class PacketsListener(val plugin: Skinner, val dataManager: DataManager) {
                                 }
                             }
                         }
+
+
                     }
                 } catch (e: Exception) {
                 }
