@@ -1,5 +1,6 @@
 package it.tigierrei.skinner.holograms
 
+import org.bukkit.ChatColor
 import org.bukkit.Location
 import org.bukkit.entity.ArmorStand
 import org.bukkit.entity.EntityType
@@ -15,6 +16,6 @@ class Hologram(val name: String, val location: Location){
         entity.setGravity(false)
         entity.setBasePlate(false)
         entity.isCustomNameVisible = true
-        entity.customName = name
+        entity.customName = ChatColor.translateAlternateColorCodes('&',name)
     }
 }

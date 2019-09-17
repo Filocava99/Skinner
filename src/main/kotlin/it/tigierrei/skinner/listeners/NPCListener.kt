@@ -12,7 +12,6 @@ class NPCListener(private val pl: Skinner) : Listener {
 
     @EventHandler
     fun onNpcSpawn(event: NPCSpawnEvent){
-        System.out.println("EVENT")
         val npc = event.npc
         //Npc of player type is bugged
         if (npc.entity.type != EntityType.PLAYER && pl.dataManager.citizensDisguiseMap.containsKey(npc.name)) {

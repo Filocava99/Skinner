@@ -134,10 +134,7 @@ public class ConfigFile{
      * @return true if exist, else false
      */
     public boolean hasProperty(String name){
-        if(config.get(name) != null)
-            return true;
-        else
-            return false;
+        return config.get(name) != null;
     }
 
 	private void checkExistance() {
