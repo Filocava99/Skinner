@@ -5,7 +5,7 @@ import org.bukkit.Location
 import org.bukkit.entity.ArmorStand
 import org.bukkit.entity.EntityType
 
-class Hologram(val name: String, val location: Location){
+class Hologram(val name: String, location: Location){
 
     val entity: ArmorStand = location.world?.spawnEntity(location, EntityType.ARMOR_STAND)!! as ArmorStand
 
@@ -16,6 +16,6 @@ class Hologram(val name: String, val location: Location){
         entity.setGravity(false)
         entity.setBasePlate(false)
         entity.isCustomNameVisible = true
-        entity.customName = ChatColor.translateAlternateColorCodes('&',name)
+        entity.customName = if(name.isNullOrEmpty()) "" else ChatColor.translateAlternateColorCodes('&',name)
     }
 }
