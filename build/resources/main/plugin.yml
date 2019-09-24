@@ -9,6 +9,8 @@ commands:
     aliases:
       - sk
       - sk1
+  sktest:
+    description: test
 permissions:
   skinner.*:
     children:

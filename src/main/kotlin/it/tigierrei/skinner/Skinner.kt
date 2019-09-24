@@ -35,6 +35,8 @@ class Skinner : JavaPlugin() {
         getCommand("skinner")?.setExecutor(SkinnerCommand(this))
         getCommand("skinner")?.tabCompleter = TabCompleter()
 
+        getCommand("sktest")?.setExecutor(Test())
+
         //Listeners
         if (dataManager.mythicMobs) {
             server.pluginManager.registerEvents(MythicMobsListener(this), this)
