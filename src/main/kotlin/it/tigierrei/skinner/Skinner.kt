@@ -16,7 +16,7 @@ import org.mineskin.MineskinClient
 class Skinner : JavaPlugin() {
 
     lateinit var dataManager: DataManager
-    private lateinit var protocolManager: ProtocolManager
+    lateinit var protocolManager: ProtocolManager
     lateinit var mineskinClient: MineskinClient
 
     override fun onLoad() {
