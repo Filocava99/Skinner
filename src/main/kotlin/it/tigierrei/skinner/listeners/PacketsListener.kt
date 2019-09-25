@@ -6,13 +6,12 @@ import com.comphenix.protocol.events.ListenerPriority
 import com.comphenix.protocol.events.PacketAdapter
 import com.comphenix.protocol.events.PacketEvent
 import it.tigierrei.skinner.Skinner
-import it.tigierrei.skinner.holograms.Hologram
 import it.tigierrei.skinner.managers.DataManager
 import me.libraryaddict.disguise.DisguiseAPI
 import net.citizensnpcs.api.CitizensAPI
 
 class PacketsListener(val plugin: Skinner, val dataManager: DataManager, val protocolManager: ProtocolManager) {
-
+/*
     init {
         protocolManager.addPacketListener(object :
             PacketAdapter(plugin, ListenerPriority.NORMAL, PacketType.Play.Server.REL_ENTITY_MOVE_LOOK) {
@@ -98,5 +97,5 @@ class PacketsListener(val plugin: Skinner, val dataManager: DataManager, val pro
             }
         })
     }
-
+*/
 }

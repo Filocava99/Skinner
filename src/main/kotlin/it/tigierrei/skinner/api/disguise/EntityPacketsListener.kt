@@ -35,18 +35,18 @@ class EntityPacketsListener(val plugin: Skinner, val disguiseManager: DisguiseMa
                                     val pitch = doubles.read(4)
                                     val onGround = booleans.read(0)
 
-                                    event.isCancelled = true
-
                                     val packet = PacketPlayOutEntity.PacketPlayOutRelEntityMoveLook(fakeEntity.id,x.toShort(),y.toShort(),z.toShort(),
                                         yaw.toByte(),
                                         pitch.toByte(),onGround)
 
-                                    disguiseManager.disguisedEntities.forEach { t, u ->
-                                        (u as CraftPlayer).handle.playerConnection.sendPacket(packet)
+                                    if(disguiseManager.disguisedEntities.containsKey(entityID)){
+                                        (disguiseManager.disguisedEntities[entityID] as CraftPlayer).handle.playerConnection.sendPacket(packet)
                                     }
                                 }
                             }
                         }
+                    }else if(event.packetType == PacketType.Play.Server.ENTITY_TELEPORT){
+
                     }
                 }
             }

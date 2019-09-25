@@ -2,14 +2,13 @@ package it.tigierrei.skinner
 
 import com.comphenix.protocol.ProtocolLibrary
 import com.comphenix.protocol.ProtocolManager
+import it.tigierrei.skinner.api.disguise.DisguiseManager
 import it.tigierrei.skinner.commands.SkinnerCommand
 import it.tigierrei.skinner.commands.TabCompleter
 import it.tigierrei.skinner.listeners.EntityListener
 import it.tigierrei.skinner.listeners.MythicMobsListener
 import it.tigierrei.skinner.listeners.NPCListener
-import it.tigierrei.skinner.listeners.PacketsListener
 import it.tigierrei.skinner.managers.DataManager
-import it.tigierrei.skinner.utils.Scheduler
 import org.bukkit.plugin.java.JavaPlugin
 import org.mineskin.MineskinClient
 
@@ -17,6 +16,7 @@ class Skinner : JavaPlugin() {
 
     lateinit var dataManager: DataManager
     lateinit var protocolManager: ProtocolManager
+    lateinit var disguiseManager: DisguiseManager
     lateinit var mineskinClient: MineskinClient
 
     override fun onLoad() {
@@ -28,7 +28,7 @@ class Skinner : JavaPlugin() {
         super.onEnable()
 
         dataManager = DataManager(this)
-        Scheduler(this)
+        disguiseManager = DisguiseManager(this)
         mineskinClient = MineskinClient()
 
         //Commands executors
@@ -45,15 +45,8 @@ class Skinner : JavaPlugin() {
             server.pluginManager.registerEvents(NPCListener(this), this)
         }
         server.pluginManager.registerEvents(EntityListener(this), this)
-        PacketsListener(this,dataManager,protocolManager)
     }
 
     override fun onDisable(){
-        //Deletes all the holograms
-        for((_,value) in dataManager.holograms){
-            if(!value.entity.isDead){
-                value.entity.remove()
-            }
-        }
     }
 }
