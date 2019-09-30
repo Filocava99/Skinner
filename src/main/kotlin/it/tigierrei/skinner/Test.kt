@@ -20,7 +20,7 @@ import java.util.*
 
 class Test : CommandExecutor{
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
-
+/*
         val player = (Bukkit.getPlayer("tigierrei") as CraftPlayer).handle
         val server = (Bukkit.getServer() as CraftServer).server
 
@@ -44,15 +44,15 @@ class Test : CommandExecutor{
         player.playerConnection.sendPacket(spawn)
 
         /*
-        1) WrapperPlayServerPlayerInfo (REMOVE)
+        1) com.comphenix.protocol.WrapperPlayServerPlayerInfo (REMOVE)
         2) WrapperPlayServerSpawnPosition
         3) WrapperPlayServerRespawn
         4) WrapperPlayServerPosition
-        5) WrapperPlayServerPlayerInfo (ADD)
+        5) com.comphenix.protocol.WrapperPlayServerPlayerInfo (ADD)
 
         To avoid glitches teleport player using player.teleport(player) one tick later.
          */
-
+*/
         return true
     }
 

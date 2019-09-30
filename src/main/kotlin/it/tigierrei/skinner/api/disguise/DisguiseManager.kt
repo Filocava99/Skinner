@@ -25,6 +25,7 @@ class DisguiseManager(val plugin : Skinner) {
     init {
         checkIntegrity()
         loadDisguises()
+        EntityPacketsListener(plugin,this)
     }
 
     private fun disguise(entity: Entity, disguise: Disguise, vararg players: Player) {
@@ -47,16 +48,17 @@ class DisguiseManager(val plugin : Skinner) {
 
         val pi = PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER,fake)
         val spawn = PacketPlayOutNamedEntitySpawn(fake)
-        val edp = PacketPlayOutEntityDestroy(1,entity.entityId)
 
         players.forEach {
             val player = (it as CraftPlayer).handle
             player.playerConnection.sendPacket(pi)
             player.playerConnection.sendPacket(spawn)
-            player.playerConnection.sendPacket(edp)
+            Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, Runnable {
+                player.playerConnection.sendPacket(PacketPlayOutEntityDestroy(entity.entityId))
+            },10L)
         }
 
-        fakeEntities[entity.entityId as Int] = fake
+        fakeEntities[entity.entityId] = fake
         disguisedEntities[entity.entityId] = players.asList()
 
     }
@@ -97,10 +99,10 @@ class DisguiseManager(val plugin : Skinner) {
         val iterator = section.getKeys(false).iterator()
         while(iterator.hasNext()){
             val key = iterator.next()
-            val disguiseSection = config.getSection(key)
-            val displayName = disguiseSection.getString("displayName")
-            val texture = disguiseSection.getString("texture")
-            val signature = disguiseSection.getString("signature")
+            val disguiseSection = section.getConfigurationSection(key)
+            val displayName = disguiseSection?.getString("displayName")
+            val texture = disguiseSection?.getString("texture")
+            val signature = disguiseSection?.getString("signature")
             //Se una delle stringhe è vuota o non esiste passo al ciclo successivo
             if(displayName.isNullOrEmpty() || texture.isNullOrEmpty() || signature.isNullOrEmpty()){
                 continue

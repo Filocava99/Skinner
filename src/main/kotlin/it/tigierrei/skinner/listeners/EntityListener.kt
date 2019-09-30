@@ -2,9 +2,12 @@ package it.tigierrei.skinner.listeners
 
 import it.tigierrei.skinner.Skinner
 import net.citizensnpcs.api.CitizensAPI
+import net.minecraft.server.v1_14_R1.PacketPlayOutEntityStatus
+import org.bukkit.craftbukkit.v1_14_R1.entity.CraftPlayer
 import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener
+import org.bukkit.event.entity.EntityDamageByEntityEvent
 import org.bukkit.event.entity.EntityDeathEvent
 import org.bukkit.event.entity.EntitySpawnEvent
 
@@ -12,7 +15,25 @@ class EntityListener(private val pl: Skinner) : Listener {
 
     @EventHandler
     fun onEntityDeath(event: EntityDeathEvent){
-        pl.disguiseManager.undisguise(event.entity)
+        val entity = event.entity
+        if(pl.disguiseManager.disguisedEntities.containsKey(entity.entityId) && pl.disguiseManager.fakeEntities.containsKey(entity.entityId)){
+            val packet = PacketPlayOutEntityStatus(pl.disguiseManager.fakeEntities[entity.entityId],3)
+            pl.disguiseManager.disguisedEntities[entity.entityId]?.forEach {
+                (it as CraftPlayer).handle.playerConnection.sendPacket(packet)
+            }
+            pl.disguiseManager.undisguise(event.entity)
+        }
+    }
+
+    @EventHandler
+    fun onEntityDamaged(event: EntityDamageByEntityEvent){
+        val entity = event.entity
+        if(pl.disguiseManager.disguisedEntities.containsKey(entity.entityId) && pl.disguiseManager.fakeEntities.containsKey(entity.entityId)){
+            val packet = PacketPlayOutEntityStatus(pl.disguiseManager.fakeEntities[entity.entityId],2)
+            pl.disguiseManager.disguisedEntities[entity.entityId]?.forEach {
+                (it as CraftPlayer).handle.playerConnection.sendPacket(packet)
+            }
+        }
     }
 
     @EventHandler(priority = EventPriority.NORMAL)
