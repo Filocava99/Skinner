@@ -11,13 +11,6 @@ import org.bukkit.event.entity.EntitySpawnEvent
 class EntityListener(private val pl: Skinner) : Listener {
 
     @EventHandler
-    fun onEntityDeath(event: EntityDeathEvent){
-        if(pl.dataManager.holograms.containsKey(event.entity)){
-            pl.dataManager.holograms[event.entity]?.entity?.remove()
-        }
-    }
-
-    @EventHandler
     fun onEntitySpawn(event: EntitySpawnEvent){
         if(!DisguiseAPI.isDisguised(event.entity)){
             if(pl.dataManager.citizens){

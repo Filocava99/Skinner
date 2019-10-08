@@ -18,7 +18,7 @@ class NPCListener(private val pl: Skinner) : Listener {
             val disguise = pl.dataManager.citizensDisguiseMap[npc.name]
             if (disguise != null) {
                 Bukkit.getScheduler().runTaskLater(pl, Runnable {
-                    DisguiseAPI.disguiseToAll(npc.entity,disguise.disguise)
+                    DisguiseAPI.disguiseToAll(npc.entity,disguise)
                 },1L)
                 return
             }

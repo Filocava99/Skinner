@@ -13,11 +13,16 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/Skinner.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/Skinner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/commands/SkinnerCommand$uploadFromFile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/commands/SkinnerCommand$uploadFromFile$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/commands/SkinnerCommand$uploadFromUUID$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/commands/SkinnerCommand$uploadFromUUID$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/commands/SkinnerCommand$uploadFromUrl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/commands/SkinnerCommand$uploadFromUrl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/commands/SkinnerCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/commands/SkinnerCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/listeners/EntityListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/listeners/EntityListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/listeners/MythicMobsListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/listeners/MythicMobsListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/listeners/NPCListener$onNpcSpawn$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/listeners/NPCListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/listeners/NPCListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/managers/DataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/it/tigierrei/skinner/managers/DataManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
@@ -57,6 +62,8 @@
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
@@ -79,17 +86,12 @@
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/Skinner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/Skinner.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/Test.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/api/disguise/Disguise.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/api/disguise/DisguiseManager.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/api/disguise/EntityPacketsListener.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/commands/SkinnerCommand.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/commands/SkinnerCommand.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/listeners/EntityListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/listeners/EntityListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/listeners/MythicMobsListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/listeners/MythicMobsListener.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/listeners/NPCListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/listeners/NPCListener.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/listeners/PacketsListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/listeners/PacketsListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/managers/DataManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/it/tigierrei/skinner/managers/DataManager.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -115,6 +117,11 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Skinner" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Skinner" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -153,6 +160,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1Q9hEkX6hxXcqQxUVehlwBeaLw7" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />

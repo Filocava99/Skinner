@@ -45,11 +45,5 @@ class Skinner : JavaPlugin() {
     }
 
     override fun onDisable(){
-        //Deletes all the holograms
-        for((_,value) in dataManager.holograms){
-            if(!value.entity.isDead){
-                value.entity.remove()
-            }
-        }
     }
 }
