@@ -63,7 +63,7 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
             }
             return true
         }
-        //sk uploadByFile fileName fileExtensione disguiseName <displayName>
+        //sk uploadByFile fileName disguiseName <displayName>
         if(args[0].equals("uploadByFile",ignoreCase = true)){
             if(!sender.hasPermission("uploadByFile")){
                 sender.sendMessage("${ChatColor.RED}You don't have the permission to use that command!")
@@ -73,7 +73,7 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
                 sender.sendMessage("${ChatColor.RED}You must pass more arguments!Type /sk help for the list of commands")
                 return true
             }
-            uploadFromFile(args[1], args[2], sender, args[3], if (args.size == 4) null else args[4])
+            uploadFromFile(args[1], sender, args[2], getDisplayName(args))
             return true
         }
         //sk uploadByUrl url disguiseName <displayName>
@@ -86,7 +86,7 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
                 sender.sendMessage("${ChatColor.RED}You must pass more arguments!Type /sk help for the list of commands")
                 return true
             }
-            uploadFromUrl(args[1], sender, args[2], if (args.size == 3) null else args[3])
+            uploadFromUrl(args[1], sender, args[2], getDisplayName(args))
             return true
         }
         //sk uploadByUsername username disguiseName <displayName>
@@ -108,7 +108,7 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
                 sender.sendMessage("${ChatColor.RED}https://mcuuid.net/")
                 return true
             }
-            uploadFromUUID(player.uniqueId, sender, args[2], if (args.size == 3) null else args[3])
+            uploadFromUUID(player.uniqueId, sender, args[2], getDisplayName(args))
             return true
         }
         //sk uploadByUUID UUID disguiseName <displayName>
@@ -121,31 +121,30 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
                 sender.sendMessage("${ChatColor.RED}You must pass more arguments!Type /sk help for the list of commands")
                 return true
             }
-            uploadFromUUID(UUID.fromString(args[1]), sender, args[2], if (args.size == 3) null else args[3])
+            uploadFromUUID(UUID.fromString(args[1]), sender, args[2], getDisplayName(args))
             return true
         }
         return true
     }
 
     private fun uploadFromFile(
-        skinName: String,
-        extension: String,
+        skinFile: String,
         sender: CommandSender,
         disguiseName: String,
         displayName: String?
     ) {
         try {
-            val skinFile = File(pl.dataFolder.path + "/skins", "$skinName.$extension")
+            val skinFile = File(pl.dataFolder.path + "/skins", "$skinFile")
 
             if (!skinFile.exists()) {
-                sender.sendMessage("§c'$skinName' doesn't exist. Please be sure that the name and the extension are correct")
+                sender.sendMessage("§c'$skinFile' doesn't exist. Please be sure that the name and the extension are correct")
                 return
             } else {
                 skinFile.createNewFile()
             }
 
 
-            pl.mineskinClient.generateUpload(skinFile, SkinOptions.name(skinName), object : SkinCallback {
+            pl.mineskinClient.generateUpload(skinFile, SkinOptions.name(disguiseName), object : SkinCallback {
                 override fun done(skin: org.mineskin.data.Skin?) {
                     sender.sendMessage("§aSkin data generated.")
                     val jsonObject = JsonObject()
@@ -163,7 +162,7 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
                     jsonObject.add("properties", propertiesArray)
 
                     val disguise = ConfigFile("${pl.dataFolder.parentFile.path}/LibsDisguises/disguises.yml",false)
-                    disguise.getSection("Disguises").set(disguiseName,"player ${displayName ?: "."} setSkin {\"id\":\"a149f81bf7844f8987c554afdd4db533\",\"name\":\"libraryaddict\",\"properties\":[{\"signature\":\"${skin?.data?.texture?.signature}\",\"name\":\"textures\",\"value\":\"${skin?.data?.texture?.value}\"}]}")
+                    disguise.getSection("Disguises").set(disguiseName,"player ${displayName ?: "\"\""} setSkin {\"id\":\"a149f81bf7844f8987c554afdd4db533\",\"name\":\"libraryaddict\",\"properties\":[{\"signature\":\"${skin?.data?.texture?.signature}\",\"name\":\"textures\",\"value\":\"${skin?.data?.texture?.value}\"}]}")
                     disguise.save()
 
                     try {
@@ -200,7 +199,7 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
             sender.sendMessage("§cUnexpected IOException: " + e.message)
             pl.logger.log(
                 Level.SEVERE,
-                "Unexpected IOException while creating skin '$skinName' with source '${pl.dataFolder.path}/skins/$skinName.$extension'",
+                "Unexpected IOException while creating skin '$disguiseName' with source '${pl.dataFolder.path}/skins/$skinFile'",
                 e
             )
         }
@@ -230,7 +229,7 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
                     disguise.getSection("Disguises").set(
                         disguiseName,
                         "player ${displayName
-                            ?: "."} setSkin {\"id\":\"a149f81bf7844f8987c554afdd4db533\",\"name\":\"libraryaddict\",\"properties\":[{\"signature\":\"${skin?.data?.texture?.signature}\",\"name\":\"textures\",\"value\":\"${skin?.data?.texture?.value}\"}]}"
+                            ?: "\"\""} setSkin {\"id\":\"a149f81bf7844f8987c554afdd4db533\",\"name\":\"libraryaddict\",\"properties\":[{\"signature\":\"${skin?.data?.texture?.signature}\",\"name\":\"textures\",\"value\":\"${skin?.data?.texture?.value}\"}]}"
                     )
                     disguise.save()
                 }
@@ -282,7 +281,7 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
                     disguise.getSection("Disguises").set(
                         disguiseName,
                         "player ${displayName
-                            ?: "."} setSkin {\"id\":\"a149f81bf7844f8987c554afdd4db533\",\"name\":\"libraryaddict\",\"properties\":[{\"signature\":\"${skin?.data?.texture?.signature}\",\"name\":\"textures\",\"value\":\"${skin?.data?.texture?.value}\"}]}"
+                            ?: "\"\""} setSkin {\"id\":\"a149f81bf7844f8987c554afdd4db533\",\"name\":\"libraryaddict\",\"properties\":[{\"signature\":\"${skin?.data?.texture?.signature}\",\"name\":\"textures\",\"value\":\"${skin?.data?.texture?.value}\"}]}"
                     )
                     disguise.save()
                 }
@@ -309,5 +308,13 @@ class SkinnerCommand(val pl: Skinner) : CommandExecutor {
         }catch (e: Exception){
             sender.sendMessage("${ChatColor.RED}Something went wrong during the upload by Username/UUID")
         }
+    }
+
+    private fun getDisplayName(args:Array<out String>):String{
+        var displayName = ""
+        if(args.size > 3){
+            displayName = args.copyOfRange(3,args.size-1).toString()
+        }
+        return displayName
     }
 }

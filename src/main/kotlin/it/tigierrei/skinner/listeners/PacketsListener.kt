@@ -11,8 +11,8 @@ import me.libraryaddict.disguise.DisguiseAPI
 import net.citizensnpcs.api.CitizensAPI
 
 class PacketsListener(val plugin: Skinner, val dataManager: DataManager, val protocolManager: ProtocolManager) {
-/*
-    init {
+
+    init {/*
         protocolManager.addPacketListener(object :
             PacketAdapter(plugin, ListenerPriority.NORMAL, PacketType.Play.Server.REL_ENTITY_MOVE_LOOK) {
             override fun onPacketSending(event: PacketEvent) {
@@ -47,11 +47,12 @@ class PacketsListener(val plugin: Skinner, val dataManager: DataManager, val pro
                                                     val mythicMob = dataManager.mythicMobsAlive[entity]
                                                     val disguise = dataManager.mythicMobsDisguiseMap[mythicMob?.internalName]
                                                     DisguiseAPI.disguiseEntity(entity, disguise?.disguise)
-                                                    if (disguise != null) {
-                                                        if (!dataManager.holograms.containsKey(entity) && !disguise.displayName.isNullOrEmpty()) {
-                                                            val hologram = Hologram(disguise.displayName, entity.location)
-                                                            dataManager.holograms[entity] = hologram
-                                                        }
+                                                    if (!dataManager.holograms.containsKey(entity)) {
+                                                        val hologram = Hologram(
+                                                            if (disguise?.displayName == null) "" else disguise.displayName,
+                                                            entity.location
+                                                        )
+                                                        dataManager.holograms[entity] = hologram
                                                     }
                                                     return
                                                 }
@@ -61,11 +62,12 @@ class PacketsListener(val plugin: Skinner, val dataManager: DataManager, val pro
                                                     if (dataManager.citizensDisguiseMap.containsKey(entity.customName)) {
                                                         val disguise = dataManager.citizensDisguiseMap[entity.customName]
                                                         DisguiseAPI.disguiseEntity(entity, disguise?.disguise)
-                                                        if (disguise != null) {
-                                                            if (!dataManager.holograms.containsKey(entity) && !disguise.displayName.isNullOrEmpty()) {
-                                                                val hologram = Hologram(disguise.displayName, entity.location)
-                                                                dataManager.holograms[entity] = hologram
-                                                            }
+                                                        if (!dataManager.holograms.containsKey(entity)) {
+                                                            val hologram = Hologram(
+                                                                if (disguise?.displayName == null) "" else disguise.displayName,
+                                                                entity.location
+                                                            )
+                                                            dataManager.holograms[entity] = hologram
                                                         }
                                                         return
                                                     }
@@ -75,11 +77,13 @@ class PacketsListener(val plugin: Skinner, val dataManager: DataManager, val pro
                                                 if (dataManager.vanillaMobsDisguiseMap.containsKey(entity.type)) {
                                                     val disguise = dataManager.vanillaMobsDisguiseMap[entity.type]
                                                     DisguiseAPI.disguiseEntity(entity, disguise?.disguise)
-                                                    if (disguise != null) {
-                                                        if (!dataManager.holograms.containsKey(entity) && !disguise.displayName.isNullOrEmpty()) {
-                                                            val hologram = Hologram(disguise.displayName, entity.location)
-                                                            dataManager.holograms[entity] = hologram
-                                                        }
+                                                    System.out.println("disguising " + entity.type.toString())
+                                                    if (!dataManager.holograms.containsKey(entity)) {
+                                                        val hologram = Hologram(
+                                                            if (disguise?.displayName == null) "" else disguise.displayName,
+                                                            entity.location
+                                                        )
+                                                        dataManager.holograms[entity] = hologram
                                                     }
                                                     return
                                                 }
@@ -95,7 +99,7 @@ class PacketsListener(val plugin: Skinner, val dataManager: DataManager, val pro
                 } catch (e: Exception) {
                 }
             }
-        })
+        })*/
     }
-*/
+
 }
