@@ -16,9 +16,9 @@ class EntityListener(private val pl: Skinner) : Listener {
     @EventHandler
     fun onEntityDeath(event: EntityDeathEvent){
         val entity = event.entity
-        if(pl.disguiseManager.disguisedEntities.containsKey(entity.entityId) && pl.disguiseManager.fakeEntities.containsKey(entity.entityId)){
-            val packet = PacketPlayOutEntityStatus(pl.disguiseManager.fakeEntities[entity.entityId],3)
-            pl.disguiseManager.disguisedEntities[entity.entityId]?.forEach {
+        if(pl.disguiseManager.playersWhoSeeDisguiseList.containsKey(entity.entityId) && pl.disguiseManager.fakeEntitiesList.containsKey(entity.entityId)){
+            val packet = PacketPlayOutEntityStatus(pl.disguiseManager.fakeEntitiesList[entity.entityId],3)
+            pl.disguiseManager.playersWhoSeeDisguiseList[entity.entityId]?.forEach {
                 (it as CraftPlayer).handle.playerConnection.sendPacket(packet)
             }
             pl.disguiseManager.undisguise(event.entity)
@@ -27,12 +27,9 @@ class EntityListener(private val pl: Skinner) : Listener {
 
     @EventHandler
     fun onEntityDamaged(event: EntityDamageByEntityEvent){
-        val entity = event.entity
-        if(pl.disguiseManager.disguisedEntities.containsKey(entity.entityId) && pl.disguiseManager.fakeEntities.containsKey(entity.entityId)){
-            val packet = PacketPlayOutEntityStatus(pl.disguiseManager.fakeEntities[entity.entityId],2)
-            pl.disguiseManager.disguisedEntities[entity.entityId]?.forEach {
-                (it as CraftPlayer).handle.playerConnection.sendPacket(packet)
-            }
+        val entity = event.damager
+        if(pl.disguiseManager.playersWhoSeeDisguiseList.containsKey(entity.entityId) && pl.disguiseManager.fakeEntitiesList.containsKey(entity.entityId)){
+            event.isCancelled = true
         }
     }
 

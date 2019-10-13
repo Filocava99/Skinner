@@ -45,7 +45,7 @@ class DataManager(pl: Skinner) {
             for ( x in section.getKeys(false)){
                 val subSection = section.getConfigurationSection(x)
                 if (subSection != null) {
-                    val disguiseName = subSection.getString("disguise-name")
+                    val disguiseName = subSection.getString("disguise")
                     if(!disguiseName.isNullOrEmpty()) {
                         mythicMobsDisguiseMap[x] = disguiseName
                     }
@@ -57,7 +57,7 @@ class DataManager(pl: Skinner) {
             for ( x in section.getKeys(false)){
                 val subSection = section.getConfigurationSection(x)
                 if (subSection != null) {
-                    val disguiseName = subSection.getString("disguise-name")
+                    val disguiseName = subSection.getString("disguise")
                     if(!disguiseName.isNullOrEmpty()) {
                         citizensDisguiseMap[x] = disguiseName
                     }
@@ -69,7 +69,7 @@ class DataManager(pl: Skinner) {
             for ( x in section.getKeys(false)){
                 val subSection = section.getConfigurationSection(x)
                 if (subSection != null) {
-                    val disguiseName = subSection.getString("disguise-name")
+                    val disguiseName = subSection.getString("disguise")
                     if(!disguiseName.isNullOrEmpty()) {
                         val entityType = EntityType.fromName(x)
                         if(entityType != null) {

@@ -4,28 +4,34 @@ import com.mojang.authlib.GameProfile
 import com.mojang.authlib.properties.Property
 import it.tigierrei.configapi.ConfigFile
 import it.tigierrei.skinner.Skinner
+import it.tigierrei.skinner.listeners.packets.UseEntityPacketListener
 import net.minecraft.server.v1_14_R1.*
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.craftbukkit.v1_14_R1.CraftServer
 import org.bukkit.craftbukkit.v1_14_R1.CraftWorld
+import org.bukkit.craftbukkit.v1_14_R1.entity.CraftEntity
 import org.bukkit.craftbukkit.v1_14_R1.entity.CraftPlayer
+import org.bukkit.craftbukkit.v1_14_R1.entity.CraftZombie
 import org.bukkit.entity.Entity
+import org.bukkit.entity.EntityType
 import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
 import java.util.*
 import kotlin.collections.HashMap
 
 class DisguiseManager(val plugin : Skinner) {
-    val disguisedEntities = HashMap<Int, List<Player>>()
-    val fakeEntities = HashMap<Int,EntityPlayer>()
+    val playersWhoSeeDisguiseList = HashMap<Int, List<Player>>()
+    val fakeEntitiesList = HashMap<Int,EntityPlayer>()
+    val originalEntitiesList = HashMap<Int, Entity>()
     private val disguises = HashMap<String, Disguise>()
 
     init {
         checkIntegrity()
         loadDisguises()
-        EntityPacketsListener(plugin,this)
+        RelEntityMoveLookPacketListener(plugin,this)
+        UseEntityPacketListener(plugin, this)
     }
 
     private fun disguise(entity: Entity, disguise: Disguise, vararg players: Player) {
@@ -58,8 +64,9 @@ class DisguiseManager(val plugin : Skinner) {
             },10L)
         }
 
-        fakeEntities[entity.entityId] = fake
-        disguisedEntities[entity.entityId] = players.asList()
+        fakeEntitiesList[entity.entityId] = fake
+        playersWhoSeeDisguiseList[entity.entityId] = players.asList()
+        originalEntitiesList[entity.entityId] = entity
 
     }
 
@@ -72,22 +79,28 @@ class DisguiseManager(val plugin : Skinner) {
     }
 
     fun undisguise(entity: Entity){
-        if(disguisedEntities.containsKey(entity.entityId)){
-            disguisedEntities.remove(entity.entityId)
+        if(playersWhoSeeDisguiseList.containsKey(entity.entityId)){
+            playersWhoSeeDisguiseList.remove(entity.entityId)
         }
-        if(fakeEntities.containsKey(entity.entityId)){
-            val fakeEntity = fakeEntities[entity.entityId]
+        if(fakeEntitiesList.containsKey(entity.entityId)){
+            val fakeEntity = fakeEntitiesList[entity.entityId]
             if(fakeEntity != null){
                 Bukkit.getOnlinePlayers().forEach {
                     val packet = PacketPlayOutEntityDestroy(1,fakeEntity.id)
                     (it as CraftPlayer).handle.playerConnection.sendPacket(packet)
                 }
-                fakeEntities.remove(entity.entityId)
+                fakeEntitiesList.remove(entity.entityId)
             }
-            if(entity is LivingEntity){
-                Bukkit.getOnlinePlayers().forEach {
-                    val packet = PacketPlayOutSpawnEntityLiving(entity as EntityLiving)
-                    (it as CraftPlayer).handle.playerConnection.sendPacket(packet)
+            if(!entity.isDead){
+                val server = (Bukkit.getServer() as CraftServer)
+                when(entity.type){
+                    EntityType.ZOMBIE -> {
+                        val craftEntity = CraftZombie(server,EntityZombie((entity.location.world as CraftWorld).handle.minecraftWorld))
+                        Bukkit.getOnlinePlayers().forEach {
+                            val packet = PacketPlayOutSpawnEntityLiving(entity as EntityLiving)
+                            (it as CraftPlayer).handle.playerConnection.sendPacket(packet)
+                        }
+                    }
                 }
             }
         }
@@ -136,14 +149,42 @@ class DisguiseManager(val plugin : Skinner) {
     }
 
     fun isDisguised(entity: Entity):Boolean{
-        return disguisedEntities.containsKey(entity.entityId)
+        return playersWhoSeeDisguiseList.containsKey(entity.entityId) && fakeEntitiesList.containsKey(entity.entityId)
+    }
+
+    fun isDisguised(entityId: Int):Boolean{
+        return playersWhoSeeDisguiseList.containsKey(entityId) && fakeEntitiesList.containsKey(entityId)
     }
 
     fun isDisguisedToPlayer(entity: Entity,player: Player):Boolean{
-        return if(disguisedEntities.containsKey(entity.entityId)){
-            val playersList = disguisedEntities[entity.entityId]
+        return if(playersWhoSeeDisguiseList.containsKey(entity.entityId)){
+            val playersList = playersWhoSeeDisguiseList[entity.entityId]
             playersList?.contains(player) ?: false
         }else false
+    }
+
+    fun isFakeEntity(entityId: Int):Boolean{
+        fakeEntitiesList.values.forEach {
+            if(it.id == entityId) return true
+        }
+        return false
+    }
+
+    fun getFakeEntityByItsId(entityId: Int):EntityPlayer?{
+        fakeEntitiesList.values.forEach {
+            if(it.id == entityId) return it
+        }
+        return null
+    }
+
+    fun getOriginalEntityIdByFakeEntity(entityId: Int):Entity?{
+        var entity : Entity? = null
+        fakeEntitiesList.forEach { t, u ->
+            if(u.id == entityId) {
+                entity = originalEntitiesList[t]!!
+            }
+        }
+        return entity
     }
 
 }
