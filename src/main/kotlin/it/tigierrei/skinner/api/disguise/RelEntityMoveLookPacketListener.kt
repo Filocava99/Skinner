@@ -36,13 +36,16 @@ class RelEntityMoveLookPacketListener(val plugin: Skinner, val disguiseManager: 
                                     val onGround = booleans.read(0)
                                     //println("X: $x Y: $y Z: $z yaw: $yaw pitch: $pitch onground $onGround")
 
-                                    val tempOriginalEntityLocation = disguiseManager.originalEntitiesList[entityID]?.location
-                                    if(tempOriginalEntityLocation != null){
-                                        val packet = PacketPlayOutEntity.PacketPlayOutRelEntityMoveLook(fakeEntity.id,tempOriginalEntityLocation.x.toShort(),tempOriginalEntityLocation.y.toShort(),tempOriginalEntityLocation.z.toShort(), yaw, pitch,onGround)
-
-                                        disguiseManager.playersWhoSeeDisguiseList[entityID]?.forEach {
-                                            (it as CraftPlayer).handle.playerConnection.sendPacket(packet)
-                                        }
+                                    val tempOriginalEntityLocation = disguiseManager.originalEntitiesList[entityID]?.location!!
+                                    println(fakeEntity.locX.toString() + "  " + tempOriginalEntityLocation.blockX.toString())
+                                    println(fakeEntity.locY.toString() + "  " + tempOriginalEntityLocation.blockY.toString())
+                                    println(fakeEntity.locZ.toString() + "  " + tempOriginalEntityLocation.blockZ.toString())
+//                                    val tempX = fakeEntity.locX.toShort() - tempOriginalEntityLocation.blockX.toShort()
+//                                    val tempY = fakeEntity.locY.toShort() - tempOriginalEntityLocation.blockY.toShort()
+//                                    val tempZ = fakeEntity.locZ.toShort() - tempOriginalEntityLocation.blockZ.toShort()
+                                    val packet = PacketPlayOutEntity.PacketPlayOutRelEntityMoveLook(fakeEntity.id,x,y,z, yaw, pitch,onGround)
+                                    disguiseManager.playersWhoSeeDisguiseList[entityID]?.forEach {
+                                        (it as CraftPlayer).handle.playerConnection.sendPacket(packet)
                                     }
                                 }
                             }

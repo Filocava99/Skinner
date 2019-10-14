@@ -2,7 +2,9 @@ package it.tigierrei.skinner.listeners
 
 import it.tigierrei.skinner.Skinner
 import net.citizensnpcs.api.CitizensAPI
+import net.minecraft.server.v1_14_R1.PacketPlayOutAnimation
 import net.minecraft.server.v1_14_R1.PacketPlayOutEntityStatus
+import org.bukkit.Bukkit
 import org.bukkit.craftbukkit.v1_14_R1.entity.CraftPlayer
 import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority
@@ -16,7 +18,12 @@ class EntityListener(private val pl: Skinner) : Listener {
     @EventHandler
     fun onEntityDeath(event: EntityDeathEvent){
         val entity = event.entity
-        if(pl.disguiseManager.playersWhoSeeDisguiseList.containsKey(entity.entityId) && pl.disguiseManager.fakeEntitiesList.containsKey(entity.entityId)){
+        if(pl.disguiseManager.isFakeEntity(entityId = entity.entityId)){
+            val disguisedEntity = pl.disguiseManager.getOriginalEntityIdByFakeEntity(entityId = entity.entityId)
+            if(disguisedEntity != null && !disguisedEntity.isDead){
+                disguisedEntity.remove()
+                pl.disguiseManager.undisguise(disguisedEntity)
+            }
             val packet = PacketPlayOutEntityStatus(pl.disguiseManager.fakeEntitiesList[entity.entityId],3)
             pl.disguiseManager.playersWhoSeeDisguiseList[entity.entityId]?.forEach {
                 (it as CraftPlayer).handle.playerConnection.sendPacket(packet)
@@ -27,14 +34,22 @@ class EntityListener(private val pl: Skinner) : Listener {
 
     @EventHandler
     fun onEntityDamaged(event: EntityDamageByEntityEvent){
-        val entity = event.damager
-        if(pl.disguiseManager.playersWhoSeeDisguiseList.containsKey(entity.entityId) && pl.disguiseManager.fakeEntitiesList.containsKey(entity.entityId)){
-            event.isCancelled = true
+        val damager = event.damager
+        //Se l'entity che sta attaccando e' quella nascosta devo inviare i pacchetti di attacco per la fake entity
+        if(pl.disguiseManager.isDisguised(damager.entityId)){
+            val fakeEntity = pl.disguiseManager.fakeEntitiesList[damager.entityId]
+            val attackAnimationPacket = PacketPlayOutAnimation(fakeEntity,0)
+            Bukkit.getOnlinePlayers().forEach {
+                (it as CraftPlayer).handle.playerConnection.sendPacket(attackAnimationPacket)
+            }
         }
     }
 
     @EventHandler(priority = EventPriority.NORMAL)
     fun onEntitySpawn(event: EntitySpawnEvent){
+        if(pl.disguiseManager.isFakeEntity(event.entity.entityId)){
+            return
+        }
         if(!pl.disguiseManager.isDisguised(event.entity)){
             if(pl.dataManager.citizens){
                 if(CitizensAPI.getNPCRegistry().isNPC(event.entity)){

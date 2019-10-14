@@ -18,6 +18,7 @@ import org.bukkit.entity.Entity
 import org.bukkit.entity.EntityType
 import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
+import org.bukkit.event.entity.CreatureSpawnEvent
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -31,7 +32,7 @@ class DisguiseManager(val plugin : Skinner) {
         checkIntegrity()
         loadDisguises()
         RelEntityMoveLookPacketListener(plugin,this)
-        UseEntityPacketListener(plugin, this)
+        //UseEntityPacketListener(plugin, this)
     }
 
     private fun disguise(entity: Entity, disguise: Disguise, vararg players: Player) {
@@ -51,6 +52,13 @@ class DisguiseManager(val plugin : Skinner) {
 
         val fake = EntityPlayer(server, nmsWorld, gameProfile, PlayerInteractManager(nmsWorld))
         fake.setLocation(location.x, location.y, location.z, location.yaw, location.pitch)
+        fake.playerConnection = PlayerConnection(MinecraftServer.getServer(), NetworkManager(EnumProtocolDirection.CLIENTBOUND), fake);
+        fake.health = (entity as LivingEntity).health.toFloat()
+
+        //In questo modo la fake entity iniziera' a triggerare eventi
+        nmsWorld.addEntity(fake, CreatureSpawnEvent.SpawnReason.CUSTOM)
+
+
 
         val pi = PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER,fake)
         val spawn = PacketPlayOutNamedEntitySpawn(fake)
@@ -82,15 +90,22 @@ class DisguiseManager(val plugin : Skinner) {
         if(playersWhoSeeDisguiseList.containsKey(entity.entityId)){
             playersWhoSeeDisguiseList.remove(entity.entityId)
         }
+        if(originalEntitiesList.containsKey(entity.entityId)){
+            originalEntitiesList.remove(entity.entityId)
+        }
         if(fakeEntitiesList.containsKey(entity.entityId)){
             val fakeEntity = fakeEntitiesList[entity.entityId]
-            if(fakeEntity != null){
+            //Se la fakeEntity non e' morta allora devo inviare al giocare il pacchetto per eliminarla
+            if(fakeEntity != null && fakeEntity.isAlive){
                 Bukkit.getOnlinePlayers().forEach {
                     val packet = PacketPlayOutEntityDestroy(1,fakeEntity.id)
                     (it as CraftPlayer).handle.playerConnection.sendPacket(packet)
                 }
                 fakeEntitiesList.remove(entity.entityId)
+                //Uccido l'entity cosi che il server sappia che non esiste piu'. Potrebbe triggerare errori della madonna
+                fakeEntity.killEntity()
             }
+            //Se l'entity originale non e' morta la faccio riapparire usando i pacchetti
             if(!entity.isDead){
                 val server = (Bukkit.getServer() as CraftServer)
                 when(entity.type){
@@ -149,11 +164,11 @@ class DisguiseManager(val plugin : Skinner) {
     }
 
     fun isDisguised(entity: Entity):Boolean{
-        return playersWhoSeeDisguiseList.containsKey(entity.entityId) && fakeEntitiesList.containsKey(entity.entityId)
+        return playersWhoSeeDisguiseList.containsKey(entity.entityId) && fakeEntitiesList.containsKey(entity.entityId) && originalEntitiesList.containsKey(entity.entityId)
     }
 
     fun isDisguised(entityId: Int):Boolean{
-        return playersWhoSeeDisguiseList.containsKey(entityId) && fakeEntitiesList.containsKey(entityId)
+        return playersWhoSeeDisguiseList.containsKey(entityId) && fakeEntitiesList.containsKey(entityId) && originalEntitiesList.containsKey(entityId)
     }
 
     fun isDisguisedToPlayer(entity: Entity,player: Player):Boolean{
