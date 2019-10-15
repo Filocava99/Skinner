@@ -6,6 +6,7 @@ import net.minecraft.server.v1_14_R1.PacketPlayOutAnimation
 import net.minecraft.server.v1_14_R1.PacketPlayOutEntityStatus
 import org.bukkit.Bukkit
 import org.bukkit.craftbukkit.v1_14_R1.entity.CraftPlayer
+import org.bukkit.entity.LivingEntity
 import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener
@@ -41,6 +42,13 @@ class EntityListener(private val pl: Skinner) : Listener {
             val attackAnimationPacket = PacketPlayOutAnimation(fakeEntity,0)
             Bukkit.getOnlinePlayers().forEach {
                 (it as CraftPlayer).handle.playerConnection.sendPacket(attackAnimationPacket)
+            }
+        }
+
+        val entityDamaged = event.entity
+        if(pl.disguiseManager.isDisguised(entityId = entityDamaged.entityId)){
+            if(entityDamaged is LivingEntity){
+                (entityDamaged as LivingEntity).damage(event.damage)
             }
         }
     }

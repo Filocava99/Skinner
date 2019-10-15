@@ -32,7 +32,6 @@ repositories {
     }
     */
     mavenCentral()
-    maven { url "http://repo.dmulloy2.net/nexus/repository/public/" }
     maven { url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/" }
     maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
     maven { url = 'http://repo.citizensnpcs.co/' }
@@ -52,7 +51,6 @@ dependencies {
     compileOnly "org.bukkit:bukkit:1.14.4-R0.1-SNAPSHOT"
     compileOnly "net.citizensnpcs:citizensapi:2.0.19-SNAPSHOT"
     compileOnly fileTree(include: ['*.jar'], dir: 'libs')
-    compile "org.inventivetalent.packetlistener:api:3.7.3-SNAPSHOT"
 }
 
 compileKotlin {

@@ -5,7 +5,10 @@ import com.comphenix.protocol.events.ListenerPriority
 import com.comphenix.protocol.events.PacketAdapter
 import com.comphenix.protocol.events.PacketEvent
 import it.tigierrei.skinner.Skinner
+import net.minecraft.server.v1_14_R1.EnumMoveType
 import net.minecraft.server.v1_14_R1.PacketPlayOutEntity
+import net.minecraft.server.v1_14_R1.PacketPlayOutEntityTeleport
+import net.minecraft.server.v1_14_R1.Vec3D
 import org.bukkit.craftbukkit.v1_14_R1.entity.CraftPlayer
 
 class RelEntityMoveLookPacketListener(val plugin: Skinner, val disguiseManager: DisguiseManager) {
@@ -36,13 +39,6 @@ class RelEntityMoveLookPacketListener(val plugin: Skinner, val disguiseManager: 
                                     val onGround = booleans.read(0)
                                     //println("X: $x Y: $y Z: $z yaw: $yaw pitch: $pitch onground $onGround")
 
-                                    val tempOriginalEntityLocation = disguiseManager.originalEntitiesList[entityID]?.location!!
-                                    println(fakeEntity.locX.toString() + "  " + tempOriginalEntityLocation.blockX.toString())
-                                    println(fakeEntity.locY.toString() + "  " + tempOriginalEntityLocation.blockY.toString())
-                                    println(fakeEntity.locZ.toString() + "  " + tempOriginalEntityLocation.blockZ.toString())
-//                                    val tempX = fakeEntity.locX.toShort() - tempOriginalEntityLocation.blockX.toShort()
-//                                    val tempY = fakeEntity.locY.toShort() - tempOriginalEntityLocation.blockY.toShort()
-//                                    val tempZ = fakeEntity.locZ.toShort() - tempOriginalEntityLocation.blockZ.toShort()
                                     val packet = PacketPlayOutEntity.PacketPlayOutRelEntityMoveLook(fakeEntity.id,x,y,z, yaw, pitch,onGround)
                                     disguiseManager.playersWhoSeeDisguiseList[entityID]?.forEach {
                                         (it as CraftPlayer).handle.playerConnection.sendPacket(packet)
@@ -52,6 +48,32 @@ class RelEntityMoveLookPacketListener(val plugin: Skinner, val disguiseManager: 
                         }
                     }else if(event.packetType == PacketType.Play.Server.ENTITY_TELEPORT){
 
+                    }else if(event.packetType == PacketType.Play.Server.REL_ENTITY_MOVE){
+                        val integers = event.packet.integers
+                        if(integers != null && integers.size() > 0){
+                            val entityID = integers.read(0)
+                            if(disguiseManager.isDisguised(entityID)){
+                                val fakeEntity = disguiseManager.fakeEntitiesList[entityID]
+                                if(fakeEntity != null){
+                                    val shorts = event.packet.shorts
+                                    val booleans = event.packet.booleans
+                                    //println(booleans.size())
+                                    if(shorts.size() < 3 || booleans.size()<1) return
+                                    if(booleans.size()<1) return
+
+                                    val x = shorts.read(0)
+                                    val y = shorts.read(1)
+                                    val z = shorts.read(2)
+                                    val onGround = booleans.read(0)
+                                    //println("X: $x Y: $y Z: $z yaw: $yaw pitch: $pitch onground $onGround")
+
+                                    val packet = PacketPlayOutEntity.PacketPlayOutRelEntityMove(fakeEntity.id,x,y,z, onGround)
+                                    disguiseManager.playersWhoSeeDisguiseList[entityID]?.forEach {
+                                        (it as CraftPlayer).handle.playerConnection.sendPacket(packet)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -55,10 +55,14 @@ class DisguiseManager(val plugin : Skinner) {
         fake.playerConnection = PlayerConnection(MinecraftServer.getServer(), NetworkManager(EnumProtocolDirection.CLIENTBOUND), fake);
         fake.health = (entity as LivingEntity).health.toFloat()
 
+        /*
+        val idField = fake.javaClass.superclass.superclass.superclass.getDeclaredField("id")
+        idField.isAccessible = true
+        idField.set(fake, entity.entityId)
+        */
+
         //In questo modo la fake entity iniziera' a triggerare eventi
         nmsWorld.addEntity(fake, CreatureSpawnEvent.SpawnReason.CUSTOM)
-
-
 
         val pi = PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER,fake)
         val spawn = PacketPlayOutNamedEntitySpawn(fake)
