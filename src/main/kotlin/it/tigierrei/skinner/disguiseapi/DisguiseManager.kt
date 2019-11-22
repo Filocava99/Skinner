@@ -1,17 +1,18 @@
-package it.tigierrei.skinner.api.disguise
+package it.tigierrei.skinner.disguiseapi
 
 import com.mojang.authlib.GameProfile
 import com.mojang.authlib.properties.Property
 import it.tigierrei.configapi.ConfigFile
 import it.tigierrei.skinner.Skinner
-import it.tigierrei.skinner.listeners.packets.UseEntityPacketListener
+import it.tigierrei.skinner.disguiseapi.packetlisteners.EntityLookPacketListener
+import it.tigierrei.skinner.disguiseapi.packetlisteners.RelEntityMoveLookPacketListener
+import it.tigierrei.skinner.disguiseapi.packetlisteners.RelEntityMovePacketListener
 import net.minecraft.server.v1_14_R1.*
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.craftbukkit.v1_14_R1.CraftServer
 import org.bukkit.craftbukkit.v1_14_R1.CraftWorld
-import org.bukkit.craftbukkit.v1_14_R1.entity.CraftEntity
 import org.bukkit.craftbukkit.v1_14_R1.entity.CraftPlayer
 import org.bukkit.craftbukkit.v1_14_R1.entity.CraftZombie
 import org.bukkit.entity.Entity
@@ -31,8 +32,9 @@ class DisguiseManager(val plugin : Skinner) {
     init {
         checkIntegrity()
         loadDisguises()
-        RelEntityMoveLookPacketListener(plugin,this)
-        //UseEntityPacketListener(plugin, this)
+        RelEntityMoveLookPacketListener(plugin, this)
+        RelEntityMovePacketListener(plugin, this)
+        EntityLookPacketListener(plugin, this)
     }
 
     private fun disguise(entity: Entity, disguise: Disguise, vararg players: Player) {
@@ -139,7 +141,7 @@ class DisguiseManager(val plugin : Skinner) {
             if(displayName.isNullOrEmpty() || texture.isNullOrEmpty() || signature.isNullOrEmpty()){
                 continue
             }
-            val disguise = Disguise(displayName,texture,signature)
+            val disguise = Disguise(displayName, texture, signature)
             disguises[key] = disguise
         }
 
