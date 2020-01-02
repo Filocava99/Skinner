@@ -1,6 +1,6 @@
 # Skinner
 
-## [Spigot page](https://www.spigotmc.org/resources/skinner.59452/)
+## [Spigot page](https://www.spigotmc.org/resources/skinner.73970/)
 
 #### [Report a bug/Get support](https://github.com/tigierrei/Skinner/issues)
 
