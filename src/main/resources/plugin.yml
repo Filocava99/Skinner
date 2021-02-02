@@ -1,6 +1,7 @@
 name: Skinner
 main: it.tigierrei.skinner.Skinner
-version: 4.1.0
+version: 5.0.0
+api-version: 1.16
 softdepend: [MythicMobs,Citizens]
 depend: [LibsDisguises]
 commands:
